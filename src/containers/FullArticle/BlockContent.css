@@ -1,0 +1,42 @@
+.ct__full-article-block__content {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+    font-family: var(--font-family);
+}
+.ct__full-article-block__content h3 {
+    font-size: 22px;
+}
+.ct__full-article-block__content h4 {
+    font-size: 20px;
+}
+.ct__full-article-block__content a {
+    text-decoration: none;
+}
+.ct__full-article-block__content li {
+    padding: 0.5rem 1rem;
+}
+.ct__full-article-block__content ul {
+    padding: 0.5rem 1rem;
+}
+.ct__full-article-block__content ol {
+    padding: 0.5rem 1rem;
+}
+.ct__full-article-block__content blockquote {
+    line-height: 25px;
+    font-size: 14px;
+    padding-bottom: 1rem;
+}
+.ct__full-article-block__content p {
+    padding: 0.5rem 0;
+    line-height: 25px;
+    font-size: 16px;
+}
+.ct__full-article-block__content img {
+    margin: 0.5rem 0;
+    width: 100%;
+    border-radius: 1rem;
+    object-fit: cover;
+    filter: drop-shadow(0 2px 2px rgba(0,0,0,.35));
+}

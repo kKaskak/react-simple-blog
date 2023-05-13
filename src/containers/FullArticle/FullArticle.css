@@ -1,0 +1,100 @@
+.ct__full-article__header {
+    position: relative;
+    border-radius: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0.5rem;
+}
+.ct__full-article__header img {
+    width: 100%;
+    max-height: 60vh;
+    object-fit: cover;
+    border-radius: 1rem;
+    user-select: none;
+    filter: drop-shadow(0 2px 2px rgba(0,0,0,.35));
+}
+.ct__full-article__header-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 2rem;
+}
+.ct__full-article__header-nav__link {
+    color: white;
+}
+.ct__full-article__header-nav__link-arrow {
+    color: white;
+}
+
+.ct__full-article__header-h1 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 3rem 2rem;
+    color: white;
+}
+.ct__full-article__header-h1 h1 {
+    font-size: 30px;
+    font-family: var(--font-family);
+    max-width: 95%;
+    filter: drop-shadow(0 2px 2px rgba(0,0,0,.5));
+}
+.ct__full-article__header-data {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 0.5rem;
+    color: #808080;
+}
+.ct__full-article__header-data p {
+    font-family: var(--font-family);
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.8));
+}
+.ct__full-article__header-data span {
+    padding: 0 0.5rem;
+}
+
+@media screen and (max-width: 720px) {
+    .ct__full-article__header-h1 h1 {
+        font-size: 20px;
+    }
+    .ct__full-article__header-h1 {
+        padding: 2rem;
+    }
+    .ct__full-article__header-data {
+        padding-top: 0.5rem;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .ct__full-article__header-h1 h1 {
+        font-size: 20px;
+        max-width: 100%;
+        line-height: 20px;
+    }
+    .ct__full-article__header-h1 {
+        padding: 2rem;
+    }
+    .ct__full-article__header-data {
+        padding-top: 0.5rem;
+        font-size: 12px;
+    }
+}
+@media screen and (max-width: 350px) {
+    .ct__full-article__header-h1 h1 {
+        font-size: 16px;
+        max-width: 100%;
+        line-height: 18px;
+    }
+    .ct__full-article__header-h1 {
+        padding: 1.5rem;
+    }
+    .ct__full-article__header-data {
+        padding-top: 0.5rem;
+        font-size: 12px;
+    }
+}

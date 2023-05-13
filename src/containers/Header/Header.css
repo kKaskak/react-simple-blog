@@ -1,0 +1,25 @@
+.ct__header {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    padding: 0.5rem;
+}
+.ct__header-main {
+    flex: 3;
+    flex-wrap: wrap;
+    border-radius: 1rem;
+    min-height: 93vh;
+}
+.ct__header-secondary {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+    gap: 0.5rem;
+    min-height: 90vh;
+}
+@media screen and (max-width: 800px) {
+    .ct__header-secondary {
+        display: none;
+    }
+}
