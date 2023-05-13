@@ -18,11 +18,11 @@ const Blog = () => {
     <title>Curiosity Blog Page</title>
         <meta
           name="description"
-          content="Explore a diverse range of engaging articles on Fashion, Tech, Animals, Culture, Space, Earth, Health, Lifestyle, and Fitness. Discover valuable insights, latest trends, and expert perspectives in one convenient blog. Stay informed and entertained as you delve into captivating topics that cater to your interests. Expand your knowledge and enjoy an enriching reading experience with our comprehensive blog."
+          content="Explore a diverse range of articles on Fashion, Tech, Animals, Culture, Space, Earth, Health, Lifestyle, and Fitness. Discover valuable insights, latest trends, and expert perspectives in one convenient blog. Stay informed and entertained as you read on different topics that you like. Expand your knowledge and enjoy an enriching reading experience with our blog."
         />
         <meta
           name="keywords"
-          content="Fashion, Tech, Animals, Culture, Space, Earth, Health, Lifestyle, Fitness"
+          content="Fashion, Tech, Animals, Culture, Space, Earth, Health, Lifestyle, Fitness, Article, Blog"
         />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="blog" />
@@ -52,7 +52,7 @@ const Blog = () => {
                 <p>{post.publishedAt}</p>
               </div> 
               <div className='ct__blog-article-component-title'>
-                <h3 style={{ color: `${post.titleColorCard}`}}>{post.title}</h3>
+                <h3 style={{ color: `${post.titleColorCard}`, filter:`${post.titleFilter}`}}>{post.title}</h3>
                 <p>{post.desc}</p>
               </div>
             </Link>
