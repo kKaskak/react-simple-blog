@@ -25,7 +25,7 @@
     font-family: var(--font-family);
     font-size: 16px;
     font-weight: 300;
-    opacity: 0.5;
+    color: var(--color-subtext);
 }
 .ct__blog-article-component {
     color: white;
@@ -142,7 +142,7 @@
         display: block;
         font-size: 16px;
         line-height: 20px;
-        color: #808080;
+        color: var(--color-subtext);
         font-family: var(--font-family);
     }
 

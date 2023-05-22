@@ -23,11 +23,11 @@ const Navbar = () => {
       </div>
       <div className='ct__navbar-mobile-menu'>
           <div className='ct__navbar-items_container'>
-            <div className='ct__navbar-items_search'> 
+            {/* <div className='ct__navbar-items_search'> 
               <FiSearch />
-            </div>
+            </div> */}
             <div className='ct__navbar-items_email'>
-              <a href="mailto:hamiahumorek@gmail.com">contact@curiosity.com</a>
+              <a href="mailto:curiositytakeover@gmail.com">contact@curiosity.com</a>
               <FiArrowUpRight />
             </div>
           </div>

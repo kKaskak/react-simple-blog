@@ -6,10 +6,12 @@
 :root {
   --font-family: 'Manrope', sans-serif;
   --color-bg: #ffffff;
+  --color-bg-secondary: #000000;
   --color-footer : #031B34;
   --color-blog: #042c54;
-  --color-text: #81AFDD;
-  --color-subtext: #FF8A71;
+  --color-text: #000000;
+  --color-text-secondary: #fff;
+  --color-subtext: #808080;
   ---width-xl: 1140px;
   ---width-lg: 940px;
   ---width-md: 720px;

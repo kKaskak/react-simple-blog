@@ -87,6 +87,7 @@
     max-width: 2.5rem;
     padding: 0.2rem 0 0.2rem 0.2rem;
     object-fit: cover;
+    border-radius: 50%;
 }
 .ct__featured-article__article-components-article p {
     color: white;

@@ -11,10 +11,7 @@ function App() {
     const checkDocumentLoaded = () => {
       setIsLoaded(true);
     };
-    if (
-      document.readyState === "complete" ||
-      document.readyState === "interactive"
-    ) {
+    if (document.readyState === "complete") {
       checkDocumentLoaded();
     } else {
       document.addEventListener("DOMContentLoaded", checkDocumentLoaded);
@@ -29,7 +26,7 @@ function App() {
         <title>Curiosity Blog</title>
         <meta
           name="description"
-          content="Curosity Takeover Official Blog. Discover a captivating blend of Fashion, Tech, Animals, Culture, Space, Earth, Health, Lifestyle, and Fitness. Dive into our blog for thought-provoking articles that explore the latest trends, fascinating discoveries, and expert insights across a diverse range of topics. Stay informed, inspired, and entertained as we unravel the wonders of our world."
+          content="Curosity Takeover Official Blog. Discover Fashion, Tech, Animals, Culture, Space, Earth, Health, Lifestyle, Animals and Fitness articles. Dive into our blog for articles that explore the latest trends, fascinating discoveries, and expert insights across a diverse range of topics. Stay informed, inspired, and entertained as we unravel the wonders of our world."
         />
         <meta
           name="keywords"
@@ -54,6 +51,10 @@ function App() {
         <meta name="twitter:card" content="summary_learge_image" />
         <meta name="twitter:creator" content="@curiosity__blog" />
         <meta name="twitter:site" content="@curiosity__blog" />
+        <meta
+          name="twitter:image"
+          content="https://cdn.sanity.io/images/zeqqep1d/production/be706b03c4fe5169ef2390f7ffe23de0f7f766f5-3012x1746.png"
+        />
       </Helmet>
       <Navbar />
       <Routes>
