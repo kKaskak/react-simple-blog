@@ -1,12 +1,14 @@
 .ct__contact {
     display: flex;
+    position: relative;
     flex-direction: column;
     flex: 1;
     width: 100%;
     margin: 0 auto;
     max-width: 800px;
     padding: 0;
-    max-height: 100vh;
+    overflow-x: hidden;
+
   }
 .ct__contact-head-text {
     display: flex;
@@ -123,6 +125,9 @@
   }
   .ct__contact-form div input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 30px #d8d8d8 inset !important; /* Change 'white' to your desired background color */
+    -moz-box-shadow:0 0 0 30px #d8d8d8 inset !important;
+    -webkit-box-shadow: 0 0 0 30px #d8d8d8 inset !important;
+     box-shadow: 0 0 0 30px #d8d8d8 inset !important;
   }
 
   .ct__contact-form div textarea {
@@ -182,3 +187,55 @@
         font-size: 30px;
       }
   }
+
+.ct__contact-waves-div {
+  position: relative;
+  padding: 0;
+  width: 100vw;
+  height: 25vh;
+}
+.ct__contact-waves__svg {
+    width: 100vw;
+    position: absolute;
+    bottom: 3.9vh;
+    left: 0;
+}
+
+.fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 4vh;
+  background-color: #000000;
+}
+
+.ct__contact-waves__twitter {
+  color: #fff;
+  z-index: 1;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 3rem 5rem;
+
+}
+.ct__contact-waves__twitter-in {
+  display: none;
+}
+  
+@media screen and (min-width: 800px) {
+  .ct__contact-waves-div {
+    display: none;
+  }
+  .ct__contact-waves__twitter-in {
+    display: block;
+    margin: 2rem auto;
+    color: #000000;
+  }
+
+}
+@media screen and (max-width: 650px) {
+  .ct__contact-waves__twitter {
+    margin: 1.5rem;
+  }
+}

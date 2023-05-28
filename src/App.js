@@ -48,7 +48,7 @@ function App() {
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="800" />
         <meta property="og:image:type" content="image/png" />
-        <meta name="twitter:card" content="summary_learge_image" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:creator" content="@curiosity__blog" />
         <meta name="twitter:site" content="@curiosity__blog" />
         <meta
