@@ -1,4 +1,4 @@
-import React, {useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { ArticlePreview, FeaturedArticle } from '../../components/export'
 import { FeaturedContainer, PreviewContainer, hoverFeatured } from './animations-header'
 import { motion } from 'framer-motion'

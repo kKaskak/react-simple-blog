@@ -221,6 +221,10 @@
 }
 .ct__contact-waves__twitter-in {
   display: none;
+  transition: 0.4s ease;
+}
+.ct__contact-waves__twitter-in:hover {
+  transform: scale(1.05);
 }
   
 @media screen and (min-width: 800px) {
@@ -232,10 +236,34 @@
     margin: 2rem auto;
     color: #000000;
   }
-
+}
+@media screen and (max-width: 799px) {
+  .hr-contact {
+    display: none;
+  }
 }
 @media screen and (max-width: 650px) {
   .ct__contact-waves__twitter {
     margin: 1.5rem;
   }
+}
+
+.hr-contact {
+  margin: 2rem auto 0;
+  width: 600px;
+}
+.ct__contact-waves__rights {
+  text-align: center;
+  font-size: 14px;
+  font-family: var(--font-family);
+  text-decoration: none;
+  text-transform: inherit;
+
+}
+.ct__full-article__footer-rights-a {
+  text-decoration: none;
+  color: #000000;
+}
+.ct__full-article__footer-rights-a:hover {
+  text-decoration: underline;
 }

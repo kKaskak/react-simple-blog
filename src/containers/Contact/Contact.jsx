@@ -103,7 +103,10 @@ const Contact = () => {
           </h3>
         </div>
       )}
+      <hr className='hr-contact'></hr>
       <a className='ct__contact-waves__twitter-in' href="https://www.twitter.com/curiosity__blog" rel="noreferrer" target='_blank'><AiFillTwitterCircle size={60}/></a>
+      <h6 className='ct__contact-waves__rights'>© 2023 Curiosity Takeover Offcial Blog • All rights reserved.</h6>
+      <h6 className='ct__full-article__footer-rights'>Created with love • by <a className='ct__full-article__footer-rights-a' rel="noreferrer" target='_blank' href='https://kkaskak.com'>kKaskak</a>.</h6>
       <div className='ct__contact-waves-div'>
         <svg className='ct__contact-waves__svg' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#000000" fill-opacity="1" d="M0,128L60,149.3C120,171,240,213,360,213.3C480,213,600,171,720,133.3C840,96,960,64,1080,58.7C1200,53,1320,75,1380,85.3L1440,96L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
         <a className='ct__contact-waves__twitter' href="https://www.twitter.com/curiosity__blog" rel="noreferrer" target='_blank'><AiFillTwitterCircle size={60}/></a>

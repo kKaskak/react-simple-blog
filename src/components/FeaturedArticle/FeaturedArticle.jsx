@@ -5,7 +5,7 @@ import { FiArrowUpRight } from 'react-icons/fi'
 import { urlFor } from '../../client'
 import { Link } from 'react-router-dom'
 const FeaturedArticle = ({ article })  => {
-  if (!article ) {
+  if (!article) {
     return null
   }
   // Destucturing objects 

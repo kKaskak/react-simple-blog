@@ -34,7 +34,7 @@
     font-size: 16px;
 }
 .ct__full-article-block__content img {
-    margin: 0.5rem 0;
+    margin: 1rem 0 0.5rem 0;
     width: 100%;
     border-radius: 1rem;
     object-fit: cover;
