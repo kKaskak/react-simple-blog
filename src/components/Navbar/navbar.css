@@ -22,6 +22,7 @@
     font-family: var(--font-family);
     text-decoration: none;
     color: black;
+    -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
      -khtml-user-select: none; /* Konqueror HTML */
@@ -34,6 +35,7 @@
     object-fit: contain;
     max-height: 6vh;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
      -khtml-user-select: none; /* Konqueror HTML */

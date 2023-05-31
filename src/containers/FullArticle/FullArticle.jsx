@@ -7,7 +7,7 @@ import { Helmet } from 'react-helmet'
 import { AiFillTwitterCircle } from 'react-icons/ai'
 import { FiArrowUpRight } from 'react-icons/fi'
 import { linkedin, aTwisted } from '../../constants/images'
-import { loading } from '../../constants/images'
+import { loading, logo_small_no_bg } from '../../constants/images'
 import './FullArticle.css'
 import './BlockContent.css'
 
@@ -162,7 +162,21 @@ const FullArticle = () => {
             </div>
             <div className='ct__full-article__footer'>
               <hr className='hr__full-article__featured-last'></hr>
-              <h6 className='ct__full-article__footer-rights'>© 2023 Curiosity Takeover Offcial Blog • All rights reserved.</h6>
+              <div className='ct__navbar-logo_container'>
+                <Link to={'/'}><img src={logo_small_no_bg} alt="Logo Curiosity Takeover blog" /></Link>
+                <Link to={'/'}><strong>Curiosity Takeover</strong></Link>
+              </div>
+              <div className='ct__full-article__share-icons' style={{justifyContent: 'center', gap: "1rem", alignItems: 'center' }}>
+                  <a target='_blank'rel="noreferrer"  href={`https://twitter.com/curiosity__blog`}>
+                    <AiFillTwitterCircle size={55} style={{minWidth: 55}} />
+                  </a>
+                  <a target='_blank'rel="noreferrer" href='https://www.facebook.com/curiosity.takeover/'>
+                    <BsFacebook size={47} style={{minWidth: 47}}/>
+                  </a>
+              </div>
+              <div className='ct__full-article__footer'>
+                <h6 className='ct__full-article__footer-rights'>© 2023 Curiosity Takeover Offcial Blog • All rights reserved.</h6>
+              </div>
             </div>
        </div>
       )}

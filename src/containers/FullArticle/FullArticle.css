@@ -279,14 +279,27 @@
     font-size: 15px;
     transition: 0.4s ease-in-out;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 .ct__full-article__featured-card-components button:hover {
     background-color: #000000;
     color: #fff;
+    
 }
 .ct__full-article__featured-card-components-link {
     text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 .hr__full-article__featured-last {
     max-width: 800px;
@@ -345,4 +358,7 @@
     font-size: 14px;
     font-family: var(--font-family);
     padding: 1rem;
+    margin-bottom: 1rem;
+    font-weight: 400;
   }
+ 
