@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { RiCloseLine, RiMenu3Line, } from 'react-icons/ri'
-import { FiSearch, FiArrowUpRight } from 'react-icons/fi'
+import { FiArrowUpRight } from 'react-icons/fi'
 import { motion } from 'framer-motion'
 import { container, containerInner, item, hover } from './animations-navbar'
 import { logo_small_no_bg } from '../../constants/images'
