@@ -175,7 +175,7 @@ const FullArticle = () => {
                   </a>
               </div>
               <div className='ct__full-article__footer'>
-                <h6 className='ct__full-article__footer-rights'>© 2023 Curiosity Takeover Offcial Blog • All rights reserved.</h6>
+                <h6 className='ct__full-article__footer-rights'>© 2023 Curiosity Takeover Official Blog • All rights reserved.</h6>
               </div>
             </div>
        </div>

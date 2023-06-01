@@ -224,12 +224,20 @@
   bottom: 0;
   right: 0;
   margin: 3rem 5rem;
-
+}
+.ct__contact-waves__twitter-2 {
+  color: #fff;
+  z-index: 1;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 2.5rem 10rem;
 }
 .ct__contact-waves__twitter-in {
   display: none;
   transition: 0.4s ease;
 }
+
 .ct__contact-waves__twitter-in:hover {
   transform: scale(1.05);
 }
@@ -240,7 +248,7 @@
   }
   .ct__contact-waves__twitter-in {
     display: block;
-    margin: 2rem auto;
+    margin: 2rem 1rem;
     color: #000000;
   }
 }
@@ -252,6 +260,14 @@
 @media screen and (max-width: 650px) {
   .ct__contact-waves__twitter {
     margin: 1.5rem;
+  }
+  .ct__contact-waves__twitter-2 {
+    color: #fff;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 1.5rem 7rem;
   }
 }
 @media screen and (max-width: 450px)  {
@@ -287,4 +303,10 @@
 }
 .ct__contact-waves__rights a:hover {
   text-decoration: underline;
+}
+.ct__contact-waves {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
