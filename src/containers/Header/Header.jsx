@@ -26,9 +26,9 @@ const Header = () => {
       }
       setPreviewArticles(previewIndices.map(index => data[index]));
       setIsLoading(false)
-      console.log(articles)
     });
   }, []);
+  console.log(articles)
   return (
     <>
       {!isLoading && (
