@@ -2,24 +2,6 @@
 .App {
      background-color: #fff;
  }
- .loading { 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 93vh;
-  padding: 1rem;
- }
- .loading img {
-  filter: invert(100%);
-  width: 15%;
- }
- @media screen and (max-width: 650px) {
-  .loading img {
-    width: 35%;
-  }
- }
-
  .scale-up-center {
 	-webkit-animation: scale-up-center 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 	        animation: scale-up-center 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
@@ -44,4 +26,3 @@
               transform: scale(1);
     }
   }
-  

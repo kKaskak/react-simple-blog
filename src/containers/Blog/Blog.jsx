@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { client } from '../../client'
 import { Helmet } from 'react-helmet';
 import BlogPost from './BlogPost';
-import Loading from './Loading';
+import Loading from '../../components/Loading/Loading';
 import './Blog.css'
 const Blog = () => {
   const [isLoading, setIsLoading] = useState(true)
@@ -44,7 +44,7 @@ const Blog = () => {
         <meta name="twitter:image" content="https://cdn.sanity.io/images/zeqqep1d/production/8fd4f7bbe00d780519edb6e20498da223fdb47da-2250x1272.png" />
     </Helmet>
     {isLoading ? (
-      <Loading />
+        <Loading />
       ) : (
       <>
         <div className='ct__blog-heading-container'>

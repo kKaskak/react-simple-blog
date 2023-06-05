@@ -4,5 +4,14 @@ import author1 from "../assets/imgs/author1.png";
 import loading from "../assets/imgs/loading.gif";
 import linkedin from "../assets/imgs/linkedin.png";
 import aTwisted from "../assets/imgs/arrow-twisted.png";
+import blur from "../assets/imgs/blur.jpg";
 
-export { logo_main, logo_small_no_bg, author1, loading, linkedin, aTwisted };
+export {
+  logo_main,
+  logo_small_no_bg,
+  author1,
+  loading,
+  linkedin,
+  aTwisted,
+  blur,
+};

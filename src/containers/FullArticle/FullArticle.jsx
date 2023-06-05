@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react'
 import { client, urlFor } from '../../client'
 import { Link, useParams } from "react-router-dom"
 import BlockContent from "@sanity/block-content-to-react"
+import { motion, AnimatePresence } from 'framer-motion'
 import { BsArrowLeft, BsFacebook, BsPinterest, BsReddit } from 'react-icons/bs'
-import { Helmet } from 'react-helmet'
 import { AiFillTwitterCircle } from 'react-icons/ai'
 import { FiArrowUpRight } from 'react-icons/fi'
-import { linkedin, aTwisted } from '../../constants/images'
-import { loading, logo_small_no_bg } from '../../constants/images'
+import { Helmet } from 'react-helmet'
+import { linkedin, aTwisted, logo_small_no_bg, blur  } from '../../constants/images'
+import { Loading } from '../../components/export'
+import { IoMdClose } from 'react-icons/io'
 import './FullArticle.css'
 import './BlockContent.css'
 
@@ -16,6 +18,7 @@ import './BlockContent.css'
 const FullArticle = () => {
   const [singlePost, setSinglePost] = useState({})
   const [isLoading, setIsLoading] = useState(true)
+  const [showDetails, setShowDetails] = useState(false);
   const { slug } = useParams()
   useEffect(() => {
     const query  = `*[slug.current == "${slug}"]{
@@ -23,7 +26,8 @@ const FullArticle = () => {
       categories[]->{title}, 
       "author": author->{
         name,
-        image
+        image,
+        bio
       }
     }`;    
     client.fetch(query)
@@ -69,33 +73,52 @@ const FullArticle = () => {
       <meta property="og:image:height" content="800" />
       <meta property="og:image:type" content="image/png" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:creator" content="@curiosity__takeover" />
-      <meta name="twitter:site" content="@curiosity__takeover" />
+      <meta name="twitter:creator" content="@curiosity__blog" />
+      <meta name="twitter:site" content="@curiosity__blog" />
       <meta name="twitter:image" content={headerImageLink} />
       </Helmet>
       {isLoading ? (
-        <div className='loading'>
-          <img src={loading} alt="loading animation" />
-        </div>
+        <Loading />
       ) : (
+        <>
         <div className='ct__full-article'>
          <div className='ct__full-article__header'>
            { headerImage && headerImage.asset && (
              <img src={urlFor(headerImage.asset).url()} alt={headerImageAlt} />
            )}
-           <div className='ct__full-article__header-nav'>
-            <Link className='ct__full-article__header-nav__link' to={'/blog'}>
-              <BsArrowLeft className='ct__full-article__header-nav__link-arrow' size={25} style={{color: `${arrowColor}`, zIndex: 1}} />
+           <Link className='ct__full-article__header-nav__link' to={'/blog'}>
+              <BsArrowLeft className='ct__full-article__header-nav__link-arrow' size={30} style={{color: `${arrowColor}`, zIndex: 1}} />
             </Link>
-             <div className='ct__full-article__header-nav__author'>
-              { author.image && author.image.asset && (
-                <>
-                  <img src={urlFor(author.image.asset).url()} alt={author.name}/>
-                  <p>by {author.name}</p>
-                </>
-              )}
-             </div>
-           </div>
+          <div className='ct__full-article__header-nav'>
+          <AnimatePresence>
+            {!showDetails && (
+              <motion.div className='ct__full-article__header-nav__author' layoutId="author" onClick={() => setShowDetails(true)}>
+                { author.image && author.image.asset && (
+                  <>
+                    <motion.img src={urlFor(author.image.asset).url()} alt={author.name}/>
+                    <motion.p>by {author.name}</motion.p>
+                  </>
+                )}
+              </motion.div>
+            )}
+
+            {showDetails && (
+              <motion.div className='ct__full-article__header-nav__author open' layoutId="author-details" 
+                positionTransition
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.5 }}
+              >
+                <motion.img src={urlFor(author.image.asset).url()} alt={author.name} />
+                <motion.div className='expanded-article-details-data'>
+                  <motion.h3>{author.name}</motion.h3>
+                  {author.bio && <BlockContent blocks={author.bio} />}
+                </motion.div>
+                <motion.button onClick={() => setShowDetails(false)}><IoMdClose /></motion.button>
+               </motion.div>
+            )}
+          </AnimatePresence>
+          </div>
            <div className='ct__full-article__header-h1'>
              <h1 style={{color: `${titleColor}`}}>{title}</h1>
              <div className='ct__full-article__header-data' style={{color: `${headerDataColor}`}}>
@@ -120,20 +143,20 @@ const FullArticle = () => {
                 <h3>Share this article</h3>
                 <img className='ct__full-article__share-header__arrow-twisted' src={aTwisted} alt="arrow-twisted" />
                </div>
-                <div className='ct__full-article__share-icons'>
-                  <a target='_blank'rel="noreferrer"  href={`https://twitter.com/share?url=${"https://curiositytakeover.com/blog/" + slug}&text=${desc}`}>
-                    <AiFillTwitterCircle size={85} style={{minWidth: 58}} />
+               <div className='ct__full-article__share-icons'>
+                  <a target='_blank' rel="noreferrer" href={`https://www.twitter.com/intent/tweet?url=https://www.curiositytakeover.com/blog/${slug}&text=${desc}`}>
+                    <AiFillTwitterCircle size={85} style={{minWidth: '58px'}} />
                   </a>
-                  <a target='_blank'rel="noreferrer" href={`https://www.facebook.com/sharer/sharer.php?u=${"https://curiositytakeover.com/blog/" + slug}`}>
+                  <a target='_blank' rel="noreferrer" href={`https://www.facebook.com/sharer/sharer.php?u=https://www.curiositytakeover.com/blog/${slug}`}>
                     <BsFacebook size={75}/>
                   </a>
-                  <a target='_blank'rel="noreferrer" href={`https://reddit.com/submit?url=${"https://curiositytakeover.com/blog/" + slug}&title=${title}`}>
+                  <a target='_blank' rel="noreferrer" href={`https://www.reddit.com/submit?url=https://www.curiositytakeover.com/blog/${slug}&title=${title}`}>
                     <BsReddit size={75}/>
                   </a>
-                  <a target='_blank'rel="noreferrer" href={`https://www.linkedin.com/shareArticle?url=${"https://curiositytakeover.com/blog/" + slug}>&title=${title}`}>
+                  <a target='_blank' rel="noreferrer" href={`https://www.linkedin.com/shareArticle?mini=true&url=https://www.curiositytakeover.com/blog/${slug}&title=${title}&summary=${desc}&source=${'https://www.curiositytakeover.com'}`}>
                     <img src={linkedin} alt="linkedin"/>
                   </a>
-                  <a target='_blank'rel="noreferrer" href={`http://pinterest.com/pin/create/button/?url=${"https://curiositytakeover.com/blog/" + slug}&description=${desc}`}>
+                  <a target='_blank' rel="noreferrer" href={`http://www.pinterest.com/pin/create/button/?url=https://www.curiositytakeover.com/blog/${slug}&description=${desc}`}>
                     <BsPinterest size={75}/>
                   </a>
                 </div>
@@ -179,6 +202,7 @@ const FullArticle = () => {
               </div>
             </div>
        </div>
+        </>
       )}
     </>
 

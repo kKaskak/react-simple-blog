@@ -27,7 +27,7 @@ const Navbar = () => {
               <FiSearch />
             </div> */}
             <div className='ct__navbar-items_email'>
-              <a href="mailto:curiositytakeover@gmail.com">contact@curiosity.com</a>
+              <a href="mailto:curiositytakeover@gmail.com">curiositytakeover@gmail..com</a>
               <FiArrowUpRight />
             </div>
           </div>
