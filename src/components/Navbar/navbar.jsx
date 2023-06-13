@@ -32,8 +32,8 @@ const Navbar = () => {
             </div>
           </div>
           {toggleMenu 
-            ? <RiCloseLine style={{cursor: 'pointer', zIndex: 2}} color='white' size={27} onClick={() => setScaleDown()} />
-            : <RiMenu3Line style={{cursor: 'pointer', zIndex: 2}} color='black' size={27} onClick={() => setScaleUp()} />
+            ? <RiCloseLine style={{cursor: 'pointer', zIndex: 3}} color='white' size={27} onClick={() => setScaleDown()} />
+            : <RiMenu3Line style={{cursor: 'pointer', zIndex: 3}} color='black' size={27} onClick={() => setScaleUp()} />
           }
           {toggleMenu && (
             <motion.div  initial={'hidden'} whileInView={'show'} variants={container} className='ct__navbar-mobile-menu-container'>
