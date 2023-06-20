@@ -4,8 +4,8 @@ import { FiArrowUpRight } from 'react-icons/fi'
 import { motion } from 'framer-motion'
 import { container, containerInner, item, hover } from './animations-navbar'
 import { logo_small_no_bg } from '../../constants/images'
-import './navbar.css'
 import { Link } from 'react-router-dom'
+import './navbar.css'
 
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);

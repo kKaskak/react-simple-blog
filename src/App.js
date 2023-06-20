@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import { Navbar } from "./components/export";
-import { Blog, Contact, Header, FullArticle } from "./containers/export";
+import { Contact, Blog, Header, FullArticle } from "./containers/export";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
@@ -24,9 +24,9 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Header />} />
-        <Route path="/blog/:slug" element={<FullArticle />} />
-        <Route path="/blog" element={<Blog />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:slug" element={<FullArticle />} />
       </Routes>
     </div>
   );
