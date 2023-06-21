@@ -1,6 +1,7 @@
 import React, { useEffect, useState, Suspense } from 'react'
 import { client } from '../../client';
 import { BsArrowDown } from 'react-icons/bs'
+import { AnimatePresence } from 'framer-motion';
 import './Blog.css'
 
 const Post = React.lazy(() => import('./Post'))
@@ -10,6 +11,7 @@ const BlogPost = () => {
   const [Cards, setCards] = useState([]);
   const [FilterCards, setFilterCards] = useState([]);
   const [ActiveFilter, setActiveFilter] = useState('All');
+  const [isOpen, setIsOpen] = useState(false)
   useEffect(() => {
     const query  = '*[_type == "post"]{..., categories[]->{title}}';
     client.fetch(query)

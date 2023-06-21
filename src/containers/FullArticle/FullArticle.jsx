@@ -33,11 +33,16 @@ const FullArticle = () => {
     client.fetch(query)
     .then((data) => {
       setSinglePost(data[0]);
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 500);
+      if(data[0] && data[0].headerImage && data[0].author && data[0].body){
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 500);
+      } else {
+        setIsLoading(true);
+      }
     });
   }, [slug])
+  
   if(!singlePost || !singlePost.headerImage || !singlePost.author || !singlePost.body) {
     return null;
   }
@@ -81,7 +86,7 @@ const FullArticle = () => {
         <Loading />
       ) : (
         <>
-        <div className='ct__full-article'>
+        <div className='ct__full-article' style={isLoading ? {opacity: 0} : { opacity: 1 }}>
          <div className='ct__full-article__header'>
            { headerImage && headerImage.asset && (
              <img src={urlFor(headerImage.asset).url()} alt={headerImageAlt} />

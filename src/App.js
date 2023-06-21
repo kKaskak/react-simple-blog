@@ -6,19 +6,18 @@ import { Route, Routes } from "react-router-dom";
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
+
   useEffect(() => {
-    const checkDocumentLoaded = () => {
+    const checkWindowLoaded = () => {
       setIsLoaded(true);
     };
-    if (document.readyState === "complete") {
-      checkDocumentLoaded();
-    } else {
-      document.addEventListener("DOMContentLoaded", checkDocumentLoaded);
-    }
+    window.addEventListener("load", checkWindowLoaded);
+
     return () => {
-      document.removeEventListener("DOMContentLoaded", checkDocumentLoaded);
+      window.removeEventListener("load", checkWindowLoaded);
     };
   }, []);
+
   return (
     <div className={`App ${isLoaded ? "loaded" : ""}`}>
       <Navbar />
