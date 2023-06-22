@@ -13,7 +13,7 @@ const BlogPost = () => {
   const [ActiveFilter, setActiveFilter] = useState('All');
   const [isOpen, setIsOpen] = useState(false)
   useEffect(() => {
-    const query  = '*[_type == "post"]{..., categories[]->{title}}';
+    const query  = '*[_type == "post"] | order(publishedAtExact desc) {..., categories[]->{title}}';
     client.fetch(query)
     .then((data) => {
       setCards(data);
