@@ -26,7 +26,9 @@ const Header = () => {
         }
       }
       setPreviewArticles(previewIndices.map(index => data[index]));
-      setIsLoading(false)
+      setTimeout(() => {
+        setIsLoading(false)
+      }, 300);
     });
   }, []);
   return (
