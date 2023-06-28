@@ -1,8 +1,12 @@
 .ct__header {
     display: flex;
+    visibility: hidden;
     flex-direction: row;
     gap: 0.5rem;
     padding: 0.5rem;
+}
+.ct__header.visible {
+    visibility: visible;
 }
 .ct__header-main {
     flex: 3;

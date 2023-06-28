@@ -28,13 +28,13 @@ const Header = () => {
       setPreviewArticles(previewIndices.map(index => data[index]));
       setTimeout(() => {
         setIsLoading(false)
-      }, 300);
+      }, 400);
     });
   }, []);
   return (
     <>
       {!isLoading && (
-        <div className='ct__header'>
+        <div className={isLoading ? 'ct__header' : 'ct__header visible' }>
            <Helmet>
         <title>Curiosity Takeover</title>
         <meta
@@ -69,10 +69,10 @@ const Header = () => {
           content="https://cdn.sanity.io/images/zeqqep1d/production/be706b03c4fe5169ef2390f7ffe23de0f7f766f5-3012x1746.png"
         />
       </Helmet>
-        <motion.div whileHover={hoverFeatured} initial={'hidden'} animate={'show'} variants={FeaturedContainer} className='ct__header-main'>
+        <motion.div whileHover={hoverFeatured} initial={'hidden'} whileInView={'show'} variants={FeaturedContainer} className='ct__header-main'>
           <FeaturedArticle article={featuredArticle}/>
         </motion.div>
-        <motion.div initial={'hidden'} animate={'show'} variants={PreviewContainer} className='ct__header-secondary'>
+        <motion.div initial={'hidden'} whileInView={'show'} variants={PreviewContainer} className='ct__header-secondary'>
             {previewArticles.map((article, index) => (
               <ArticlePreview key={index} article={article} />
             ))}

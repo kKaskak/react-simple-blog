@@ -6,15 +6,24 @@ import { Route, Routes } from "react-router-dom";
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
-
+  const [isFullyLoaded, setIsFullyLoaded] = useState(false);
   useEffect(() => {
-    const checkWindowLoaded = () => {
+    const checkDocumentLoaded = () => {
       setIsLoaded(true);
+      setTimeout(() => {
+        setIsFullyLoaded(true);
+      }, 200);
     };
-    window.addEventListener("load", checkWindowLoaded);
-
+    if (
+      document.readyState === "complete" ||
+      document.readyState === "interactive"
+    ) {
+      checkDocumentLoaded();
+    } else {
+      document.addEventListener("DOMContentLoaded", checkDocumentLoaded);
+    }
     return () => {
-      window.removeEventListener("load", checkWindowLoaded);
+      document.removeEventListener("DOMContentLoaded", checkDocumentLoaded);
     };
   }, []);
 
@@ -22,7 +31,7 @@ function App() {
     <div className={`App ${isLoaded ? "loaded" : ""}`}>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Header />} />
+        {isFullyLoaded && <Route path="/" element={<Header />} />}
         <Route path="/contact" element={<Contact />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<FullArticle />} />
