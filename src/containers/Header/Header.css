@@ -13,6 +13,10 @@
     flex-wrap: wrap;
     border-radius: 1rem;
     min-height: 93vh;
+    display: none;
+}
+.ct__header-main.loaded {
+    display: block;
 }
 .ct__header-secondary {
     flex: 1;

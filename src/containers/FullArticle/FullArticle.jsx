@@ -46,7 +46,7 @@ const FullArticle = () => {
   if(!singlePost || !singlePost.headerImage || !singlePost.author || !singlePost.body) {
     return null;
   }
-  const { keywords, desc, headerImage, categories, publishedAt, arrowColor, title, headerDataColor, headerImageAlt, headerImageLink, author, titleColor, body, ffTitle, ffParagraph, ffImage, ffLink, ffImageAlt, fsTitle, fsParagraph, fsImage, fsLink, fsImageAlt } = singlePost;
+  const { keywords, desc, headerImage, categories, publishedAt, arrowColor, title, headerDataColor, headerImageAlt, headerImageLink, author, titleColor, body, ffTitle, ffParagraph, ffImage, ffLink, ffImageAlt, fsTitle, fsParagraph, fsImage, fsLink, fsImageAlt, titleFilter } = singlePost;
   const ScrollTop = () => {
     setTimeout(() => {
       window.scrollTo(0, 0)
@@ -125,7 +125,7 @@ const FullArticle = () => {
           </AnimatePresence>
           </div>
            <div className='ct__full-article__header-h1'>
-             <h1 style={{color: `${titleColor}`}}>{title}</h1>
+             <h1 style={{color: `${titleColor}`, filter: `${titleFilter}`}}>{title}</h1>
              <div className='ct__full-article__header-data' style={{color: `${headerDataColor}`}}>
                  <p>{publishedAt}</p>
                  <span>•</span>

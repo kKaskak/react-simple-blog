@@ -22,7 +22,7 @@ const Blog = () => {
     <title>Curiosity Blog Page</title>
         <meta
           name="description"
-          content="Explore a diverse range of articles on Fashion, Tech, Animals, Culture, Space, Earth, Health, Lifestyle, and Fitness. Discover valuable insights, latest trends, and expert perspectives in one convenient blog. Stay informed and entertained as you read on different topics that you like. Expand your knowledge and enjoy an enriching reading experience with our blog."
+          content="Explore a diverse range of articles on Fashion, Tech, Animals, Culture, Space, Earth, Health, Lifestyle, and Fitness. Discover valuable insights, latest trends, and expert perspectives in one convenient blog."
         />
         <meta
           name="keywords"
