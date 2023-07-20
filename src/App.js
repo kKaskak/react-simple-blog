@@ -5,23 +5,25 @@ import { Contact, Blog, Header, FullArticle } from "./containers/export";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
-  const [isFullyLoaded, setIsFullyLoaded] = useState(false);
+  const [isLoading, setisLoading] = useState(true);
   useEffect(() => {
     setTimeout(() => {
-      setIsFullyLoaded(true);
-    }, 300);
+      setisLoading(false);
+    }, 400);
   }, []);
-  if (!isFullyLoaded) {
-    return <div></div>;
-  }
+
   return (
-    <div className={`App ${isFullyLoaded ? "loaded" : ""}`}>
+    <div className="App">
       <Navbar />
       <Routes>
-        <Route path="/" element={<Header />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/blog/:slug" element={<FullArticle />} />
+        {!isLoading && (
+          <>
+            <Route path="/" element={<Header />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<FullArticle />} />
+          </>
+        )}
       </Routes>
     </div>
   );

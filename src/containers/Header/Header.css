@@ -1,22 +1,15 @@
 .ct__header {
     display: flex;
-    visibility: hidden;
     flex-direction: row;
     gap: 0.5rem;
     padding: 0.5rem;
-}
-.ct__header.visible {
-    visibility: visible;
 }
 .ct__header-main {
     flex: 3;
     flex-wrap: wrap;
     border-radius: 1rem;
     min-height: 93vh;
-    display: none;
-}
-.ct__header-main.loaded {
-    display: block;
+    opacity: 0;
 }
 .ct__header-secondary {
     flex: 1;

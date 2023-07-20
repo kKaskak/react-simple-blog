@@ -1,10 +1,6 @@
 
  .App {
   background-color: #fff;
-  display: none;
-}
-.App.loaded {
-  display: block;
 }
 .loading {
   display: flex;
