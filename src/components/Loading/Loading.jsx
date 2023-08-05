@@ -1,12 +1,12 @@
-import React from 'react'
-import { loading } from '../../constants/images'
-import '../../App.css'
+import React from "react";
+import "./Loading.css";
+
 const Loading = () => {
   return (
-    <div className='loading'>
-        <img style={ window.innerWidth >= 650 ? {width: '15%', filter: 'invert(100)'} : { width: '35%',  filter: 'invert(100)' }} src={loading} alt="loading animation" />
+    <div className="custom-loader__container">
+      <div class="custom-loader"></div>
     </div>
-  )
-}
+  );
+};
 
-export default Loading
+export default Loading;

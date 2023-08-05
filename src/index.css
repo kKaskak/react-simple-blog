@@ -4,10 +4,10 @@
   box-sizing: border-box;
 }
 :root {
-  --font-family: 'Manrope', sans-serif;
+  --font-family: "Manrope", sans-serif;
   --color-bg: #ffffff;
   --color-bg-secondary: #000000;
-  --color-footer : #031B34;
+  --color-footer: #031b34;
   --color-blog: #042c54;
   --color-text: #000000;
   --color-text-secondary: #fff;
