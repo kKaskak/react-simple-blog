@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { client } from "../../client";
 import { MdEmail } from "react-icons/md";
-import { AiFillTwitterCircle } from "react-icons/ai";
 import { BsFacebook } from "react-icons/bs";
+import { xcorp, xcorpwhite } from "../../assets/imgs";
 import "./Contact.css";
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -155,7 +155,7 @@ const Contact = () => {
             rel="noreferrer"
             target="_blank"
           >
-            <AiFillTwitterCircle size={60} />
+            <img src={xcorp} alt="xcorp" style={{ width: "66px" }} />
           </a>
           <a
             className="ct__contact-waves__twitter-in"
@@ -196,7 +196,7 @@ const Contact = () => {
             rel="noreferrer"
             target="_blank"
           >
-            <AiFillTwitterCircle size={60} />
+            <img alt="xcorp" src={xcorpwhite} style={{ width: "60px" }} />
           </a>
           <a
             className="ct__contact-waves__twitter-2"
