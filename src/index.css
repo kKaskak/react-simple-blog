@@ -1,20 +1,87 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 :root {
-  --font-family: "Manrope", sans-serif;
-  --color-bg: #ffffff;
-  --color-bg-secondary: #000000;
-  --color-footer: #031b34;
-  --color-blog: #042c54;
-  --color-text: #000000;
-  --color-text-secondary: #fff;
-  --color-subtext: #808080;
-  ---width-xl: 1140px;
-  ---width-lg: 940px;
-  ---width-md: 720px;
-  ---width-sm: 540px;
-  ---width-xs: 340px;
+    --font-family: "Manrope", sans-serif;
+    --color-bg: #ffffff;
+    --color-bg-secondary: #000000;
+    --color-footer: #031b34;
+    --color-blog: #042c54;
+    --color-text: #000000;
+    --color-text-secondary: #fff;
+    --color-subtext: #808080;
+    ---width-xl: 1140px;
+    ---width-lg: 940px;
+    ---width-md: 720px;
+    ---width-sm: 540px;
+    ---width-xs: 340px;
+}
+.container--center {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.loading {
+    display: flex;
+    background-color: #fff;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-family: var(--font-family);
+    margin: 0.5rem;
+    cursor: pointer;
+    padding: 0.7rem 1.2rem;
+    border-radius: 1.5rem;
+    border: 2px solid black;
+    color: black;
+    transition: 0.5s;
+    -webkit-tap-highlight-color: transparent;
+}
+.btn:hover {
+    font-size: 12px;
+    color: white;
+    cursor: pointer;
+    background-color: black;
+}
+.heading--big {
+    font-family: var(--font-family);
+    font-size: 40px;
+    font-weight: 1300;
+}
+.scale-up-center {
+    -webkit-animation: scale-up-center 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+    animation: scale-up-center 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+@-webkit-keyframes scale-up-center {
+    0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+@keyframes scale-up-center {
+    0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
 }

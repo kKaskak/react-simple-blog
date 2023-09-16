@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { ArticlePreview, FeaturedArticle } from "../../components/export";
+import { ArticlePreview, FeaturedArticle } from "../../components";
 import { FeaturedContainer, PreviewContainer, hoverFeatured } from "./animations-header";
 import { motion } from "framer-motion";
 import { client } from "../../client";
@@ -9,43 +9,40 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./Header.css";
 
+// --> Carousel settings
+const settings = {
+    dots: false,
+    arrows: false,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    speed: 1000,
+    autoplaySpeed: 3000,
+    pauseOnHover: true,
+    // cssEase: "linear",
+};
+
 const Header = () => {
-    const [isLoading, setIsLoading] = useState(true);
-    const [articles, setArticles] = useState([]);
     const [featuredArticle, setFeaturedArticle] = useState([]);
     const [previewArticles, setPreviewArticles] = useState([]);
-    const settings = {
-        dots: false,
-        arrows: false,
-        infinite: true,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        speed: 1000,
-        autoplaySpeed: 3000,
-        pauseOnHover: true,
-        // cssEase: "linear",
-    };
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 800);
 
+    // -->  Check screen size / Rendering purposes
     useEffect(() => {
-        // Function to update isMobile based on window width
         const updateIsMobile = () => {
             setIsMobile(window.innerWidth <= 800);
         };
-
-        // Add event listener to window resize
         window.addEventListener("resize", updateIsMobile);
-
-        // Cleanup the event listener when the component unmounts
         return () => {
             window.removeEventListener("resize", updateIsMobile);
         };
     }, []);
+
+    // --> Fetch from the CMS
     useEffect(() => {
         const query = '*[_type == "post"]{..., "imageUrl": previewImage.asset->url,  "author": author->{name, image}, categories[]->{title}}';
         client.fetch(query).then((data) => {
-            setArticles(data);
             let featuredIndexes = [];
             while (featuredIndexes.length < 5) {
                 // assuming you want only one featured article
@@ -65,12 +62,11 @@ const Header = () => {
             }
             setPreviewArticles(previewIndices.map((index) => data[index]));
             setFeaturedArticle(featuredIndexes.map((index) => data[index]));
-            setIsLoading(false);
         });
     }, []);
     return (
         <>
-            {!isLoading && !isMobile && (
+            {!isMobile && (
                 <div className={`ct__header`}>
                     <Helmet>
                         <title>Curiosity Takeover</title>
@@ -121,7 +117,7 @@ const Header = () => {
                 </div>
             )}
             {isMobile && (
-                <div className="ct__header-mobile">
+                <div className={`ct__header-mobile`}>
                     <Slider {...settings}>
                         {featuredArticle.map((article, index) => {
                             return (

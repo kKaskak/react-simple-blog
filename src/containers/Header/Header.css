@@ -4,6 +4,7 @@
     gap: 0.5rem;
     padding: 0.5rem;
 }
+
 .ct__header-main {
     flex: 3;
     flex-wrap: wrap;
@@ -11,13 +12,15 @@
     min-height: 93vh;
     /* opacity: 0; */
 }
+
 .ct__header-mobile {
     min-height: 93vh;
     max-height: 93vh;
-    flex-wrap: wrap;
     border-radius: 1rem;
     min-height: 93vh;
+    display: block;
 }
+
 .ct__header-secondary {
     flex: 1;
     display: flex;

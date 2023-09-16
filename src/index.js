@@ -1,18 +1,32 @@
-import React from "react";
-import "./index.css";
+import * as React from "react";
+import * as ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Contact, Blog, FullArticle } from "./containers";
+import ErrorElement from "./ErrorElement";
 import App from "./App";
-import { BrowserRouter } from "react-router-dom";
-import { hydrate, render } from "react-dom";
+import "./index.css";
 
-const rootElement = document.getElementById("root");
-const app = (
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
-);
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <App />,
+        errorElement: <ErrorElement />,
+    },
+    {
+        path: "/blog",
+        element: <Blog />,
+        errorElement: <ErrorElement />,
+    },
+    {
+        path: "/blog/:slug",
+        element: <FullArticle />,
+        errorElement: <ErrorElement />,
+    },
+    {
+        path: "/contact",
+        element: <Contact />,
+        errorElement: <ErrorElement />,
+    },
+]);
 
-if (rootElement.hasChildNodes()) {
-  hydrate(app, rootElement);
-} else {
-  render(app, rootElement);
-}
+ReactDOM.createRoot(document.getElementById("root")).render(<RouterProvider router={router} />);
