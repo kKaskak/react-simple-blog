@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { Loading, PageLayout } from "./components";
-import { Header } from "./containers";
-import "./index.css";
+import React, { useState, useEffect } from 'react';
+import { Loading, PageLayout } from './components';
+import { Header } from './containers';
+import './index.css';
 
 function App() {
     const [isLoaded, setIsLoaded] = useState(false);
