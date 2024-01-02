@@ -6,7 +6,17 @@ Designed and developed by kKaskak.
 
 The code will be updated periodically
 
+This project might be helpful for newbie devs who have the idea of starting a blog and need a shell.
+It features -->
+Home page
+<img width="1442" alt="Screenshot 2024-01-02 at 10 33 02" src="https://github.com/kKaskak/react-simple-blog/assets/117831817/eb68ea65-ef58-413d-8811-4be88386dccd">
+Blog Page
+<img width="1444" alt="Screenshot 2024-01-02 at 10 33 20" src="https://github.com/kKaskak/react-simple-blog/assets/117831817/f8e714fe-3ef4-47f9-aa92-d55dcb101cc8">
+Contact page
+<img width="1444" alt="Screenshot 2024-01-02 at 10 33 12" src="https://github.com/kKaskak/react-simple-blog/assets/117831817/c57b1fad-c514-464b-b355-8f256c701a14">
+
 # Getting Started with Create React App
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
