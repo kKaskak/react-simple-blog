@@ -19,25 +19,25 @@ The code will be updated periodically
 
 ## Available Scripts
 
-**In the project directory, you can run:
+**In the project directory, you can run:**
 
 ```bash
 npm start
 ```
 
-**Runs the app in the development mode.
+**Runs the app in the development mode.**
 
 ```bash
 npm test
 ```
 
-**Launches the test runner in the interactive watch mode.\
+**Launches the test runner in the interactive watch mode.**
 
 ```bash
 npm run build
 ```
 
-**Builds the app for production to the `build` folder.\
+**Builds the app for production to the `build` folder.**
 
 ```bash
 npm run eject
