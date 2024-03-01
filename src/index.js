@@ -1,32 +1,11 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Contact, Blog, FullArticle } from "./containers";
-import ErrorElement from "./ErrorElement";
-import App from "./App";
-import "./index.css";
+import React from 'react';
+import * as ReactDOM from 'react-dom/client';
+import { router } from './router';
+import './index.css';
+import { RouterProvider } from 'react-router-dom';
 
-const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <App />,
-        errorElement: <ErrorElement />,
-    },
-    {
-        path: "/blog",
-        element: <Blog />,
-        errorElement: <ErrorElement />,
-    },
-    {
-        path: "/blog/:slug",
-        element: <FullArticle />,
-        errorElement: <ErrorElement />,
-    },
-    {
-        path: "/contact",
-        element: <Contact />,
-        errorElement: <ErrorElement />,
-    },
-]);
-
-ReactDOM.createRoot(document.getElementById("root")).render(<RouterProvider router={router} />);
+ReactDOM.createRoot(document.getElementById('root')).render(
+	<React.StrictMode>
+		<RouterProvider router={router} />
+	</React.StrictMode>
+);

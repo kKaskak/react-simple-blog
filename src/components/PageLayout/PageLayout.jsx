@@ -1,13 +1,15 @@
-import React from "react";
-import { Navbar } from "../../components";
+import propTypes from 'prop-types';
 
 const PageLayout = ({ children }) => {
-    return (
-        <>
-            <Navbar />
-            {children}
-        </>
-    );
+	return (
+		<>
+			{children}
+		</>
+	);
 };
 
 export default PageLayout;
+
+PageLayout.propTypes = {
+	children: propTypes.node.isRequired,
+};
