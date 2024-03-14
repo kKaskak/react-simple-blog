@@ -6,7 +6,7 @@ Designed and developed by kKaskak.
 
 The code will be updated periodically
 
-**This project might be helpful for newbie devs who have the idea of starting a blog and need a shell.**
+**This project might be helpful for devs who have the idea of starting a blog and need a shell.**
 
 ## Home page
 
