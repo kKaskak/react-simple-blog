@@ -1,19 +1,18 @@
-.ct__header {
+.header {
 	display: flex;
 	flex-direction: row;
 	gap: 0.5rem;
 	padding: 0.5rem;
 }
 
-.ct__header-main {
+.header-main {
 	flex: 3;
 	flex-wrap: wrap;
 	border-radius: 1rem;
 	min-height: 93vh;
-	/* opacity: 0; */
 }
 
-.ct__header-mobile {
+.header-mobile {
 	min-height: 93vh;
 	max-height: 93vh;
 	border-radius: 1rem;
@@ -21,7 +20,7 @@
 	display: block;
 }
 
-.ct__header-secondary {
+.header-secondary {
 	flex: 1;
 	display: flex;
 	flex-direction: column;
@@ -29,21 +28,26 @@
 	gap: 0.5rem;
 	min-height: 90vh;
 }
+
 @media screen and (max-width: 800px) {
-	.ct__header-secondary {
+	.header-secondary {
 		display: none;
 	}
 }
+
 .slick-track {
 	display: flex;
 	max-height: 93vh;
 }
+
 .slick-slide {
 	padding: 0 0.5rem;
 }
+
 .slick-slider {
 	max-height: 93vh;
 }
+
 .slick-arrow {
 	display: none;
 }

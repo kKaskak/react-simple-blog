@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion';
-import { urlFor } from '../../client';
-import { blogCard, hover } from './animations-blog';
+import { urlFor } from '../../../client';
+import { blogCard, hover } from '../animations-blog';
 import { Link } from 'react-router-dom';
 import propTypes from 'prop-types';
-import './Blog.css';
+import './Post.css';
 
 const Post = ({ post }) => {
 	return (
@@ -14,14 +14,14 @@ const Post = ({ post }) => {
 			variants={blogCard}
 			whileHover={hover}
 			key={post.slug.current}
-			className='ct__blog-article-component'
+			className='blog-article-component'
 		>
 			<Link
 				style={{ textDecoration: 'none' }}
 				to={`/blog/${post.slug.current}`}
 			>
 				<img src={urlFor(post.previewImage)} alt={post.title} />
-				<div className='ct__blog-article-component-date'>
+				<div className='blog-article-component-date'>
 					<p style={{ color: post.categoriesPreviewColor }}>
 						{post.categories
 							.map((category) => category.title)
@@ -31,7 +31,7 @@ const Post = ({ post }) => {
 						{post.publishedAt}
 					</p>
 				</div>
-				<div className='ct__blog-article-component-title'>
+				<div className='blog-article-component-title'>
 					<h3
 						style={{
 							color: `${post.titleColorCard}`,
@@ -56,7 +56,7 @@ Post.propTypes = {
 		slug: propTypes.shape({
 			current: propTypes.string,
 		}),
-		previewImage: propTypes.string,
+		previewImage: propTypes.object,
 		categories: propTypes.arrayOf(
 			propTypes.shape({
 				title: propTypes.string,

@@ -15,14 +15,14 @@ const ArticlePreview = ({ article }) => {
 	return (
 		<motion.div
 			whileHover={hoverPreview}
-			className='ct__secondary-article__article'
+			className='secondary-article__article'
 		>
 			<Link
-				className='ct__secondary-article__article-link'
+				className='secondary-article__article-link'
 				to={`/blog/${slug.current}`}
 			>
-				<img src={urlFor(previewImage).url()} alt={previewImage.alt} />
-				<div className='ct__secondary-article__article-components'>
+				<img loading='lazy' src={urlFor(previewImage).url()} alt={previewImage.alt} />
+				<div className='secondary-article__article-components'>
 					<p>
 						{categories
 							.map((category) => category.title)
