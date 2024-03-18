@@ -16,6 +16,10 @@ The code will be updated periodically
 
 <img width="1444" alt="Screenshot 2024-01-02 at 10 33 12" src="https://github.com/kKaskak/react-simple-blog/assets/117831817/c57b1fad-c514-464b-b355-8f256c701a14">
 
+## Article Page
+
+<img width="1678" alt="Screenshot 2024-03-18 at 11 55 33" src="https://github.com/kKaskak/react-simple-blog/assets/117831817/5ae051be-af96-4a53-827b-12507c3bb820">
+
 ## Contact page
 
 <img width="1444" alt="Screenshot 2024-01-02 at 10 33 20" src="https://github.com/kKaskak/react-simple-blog/assets/117831817/f8e714fe-3ef4-47f9-aa92-d55dcb101cc8">
