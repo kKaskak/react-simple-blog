@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet';
 import propTypes from 'prop-types';
 
-const HelmetFullArticle = ({
+const FullArticleHelmet = ({
 	title,
 	desc,
 	keywords,
@@ -34,9 +34,9 @@ const HelmetFullArticle = ({
 	);
 };
 
-export default HelmetFullArticle;
+export default FullArticleHelmet;
 
-HelmetFullArticle.propTypes = {
+FullArticleHelmet.propTypes = {
 	title: propTypes.string,
 	desc: propTypes.string,
 	keywords: propTypes.string,

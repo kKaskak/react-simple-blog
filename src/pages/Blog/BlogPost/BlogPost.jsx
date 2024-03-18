@@ -10,8 +10,8 @@ const Post = React.lazy(() => import('../Post/Post'));
 
 const BlogPost = () => {
 	const [categoriesOpen,,, toggleCategories] = useBinaryState();
-	const [Cards, setCards] = useState([]);
-	const [FilterCards, setFilterCards] = useState([]);
+	const [cards, setCards] = useState([]);
+	const [filterCards, setFilterCards] = useState([]);
 	const [activeFilter, setActiveFilter] = useState('All');
 
 	useEffect(() => {
@@ -24,9 +24,10 @@ const BlogPost = () => {
 
 	const handleCardsFilter = (item) => {
 		setActiveFilter(item);
-		item === 'All' ? setFilterCards(Cards)
-			: setFilterCards(Cards.filter((card) => card.categories.some((category) => category.title === item)));
+		item === 'All' ? setFilterCards(cards)
+			: setFilterCards(cards.filter((card) => card.categories.some((category) => category.title === item)));
 	};
+
 	return (
 		<>
 			<motion.div className={classNames('blog-categories', { 'open': categoriesOpen })}>
@@ -50,7 +51,7 @@ const BlogPost = () => {
 				/>
 			</div>
 			<div className='blog'>
-				{FilterCards.map((post) => (
+				{filterCards.map((post) => (
 					<Suspense key={post.slug.current}>
 						<Post post={post} />
 					</Suspense>

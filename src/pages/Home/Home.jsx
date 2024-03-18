@@ -12,6 +12,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './Home.css';
+import { useMobileDevice } from '../../common';
 
 // --> Carousel settings
 const settings = {
@@ -29,27 +30,18 @@ const settings = {
 const Header = () => {
 	const [featuredArticle, setFeaturedArticle] = useState([]);
 	const [previewArticles, setPreviewArticles] = useState([]);
-	const [isMobile, setIsMobile] = useState(window.innerWidth <= 800);
+	const isMobile = useMobileDevice();
 
-	// -->  Check screen size / Rendering purposes
-	useEffect(() => {
-		const updateIsMobile = () => {
-			setIsMobile(window.innerWidth <= 800);
-		};
-		window.addEventListener('resize', updateIsMobile);
-		return () => {
-			window.removeEventListener('resize', updateIsMobile);
-		};
-	}, []);
-
-	// --> Fetch from the CMS
+	// Fetch from the CMS
 	useEffect(() => {
 		const query =
 			'*[_type == "post"]{..., "imageUrl": previewImage.asset->url,  "author": author->{name, image}, categories[]->{title}}';
+
 		client.fetch(query).then((data) => {
 			const featuredIndexes = [];
+
+			// assuming you want only one featured article
 			while (featuredIndexes.length < 5) {
-				// assuming you want only one featured article
 				const featuredIndex = Math.floor(Math.random() * data.length);
 				if (!featuredIndexes.includes(featuredIndex)) {
 					featuredIndexes.push(featuredIndex);
@@ -66,6 +58,7 @@ const Header = () => {
 			setFeaturedArticle(featuredIndexes.map((index) => data[index]));
 		});
 	}, []);
+
 	return (
 		<>
 			{!isMobile && (

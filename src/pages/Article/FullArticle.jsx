@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { client, urlFor } from '../../client';
-import { FullArticleHeader, HelmetFullArticle } from './index';
+import { FullArticleHeader } from './index';
 import { Link, useParams } from 'react-router-dom';
 import BlockContent from '@sanity/block-content-to-react';
 import { PageLayout } from '../../components';
@@ -9,6 +9,7 @@ import { linkedin, aTwisted, xcorp } from '../../assets/imgs';
 import { BsFacebook, BsPinterest, BsReddit } from 'react-icons/bs';
 import { FiArrowUpRight } from 'react-icons/fi';
 import './FullArticle.css';
+import FullArticleHelmet from './FullArticleHelmet';
 
 const FullArticle = () => {
 	const [singlePost, setSinglePost] = useState({});
@@ -66,7 +67,7 @@ const FullArticle = () => {
 
 	return (
 		<>
-			<HelmetFullArticle
+			<FullArticleHelmet
 				slug={slug}
 				title={title}
 				desc={desc}
@@ -74,7 +75,7 @@ const FullArticle = () => {
 				headerImageLink={headerImageLink}
 			/>
 			<PageLayout>
-				<div className='ct__full-article'>
+				<div className='full-article'>
 					<FullArticleHeader
 						headerDataColor={headerDataColor}
 						headerImage={headerImage}
@@ -87,24 +88,24 @@ const FullArticle = () => {
 						publishedAt={publishedAt}
 						categories={categories}
 					/>
-					<div className='ct__full-article-block__content'>
+					<div className='full-article-block__content'>
 						<BlockContent
 							blocks={body}
 							projectId='zeqqep1d'
 							dataset='production'
 						/>
 					</div>
-					<div className='ct__full-article__share'>
+					<div className='full-article__share'>
 						<hr className='hr-full-article'></hr>
-						<div className='ct__full-article__share-header'>
+						<div className='full-article__share-header'>
 							<h3>Share this article</h3>
 							<img
-								className='ct__full-article__share-header__arrow-twisted'
+								className='full-article__share-header__arrow-twisted'
 								src={aTwisted}
 								alt='arrow-twisted'
 							/>
 						</div>
-						<div className='ct__full-article__share-icons'>
+						<div className='full-article__share-icons'>
 							<a
 								target='_blank'
 								rel='noreferrer'
@@ -152,49 +153,49 @@ const FullArticle = () => {
 						</div>
 						<hr className='hr-full-article-last'></hr>
 					</div>
-					<div className='ct__full-article__featured'>
+					<div className='full-article__featured'>
 						<h3>Featured for you</h3>
 						<hr></hr>
-						<div className='ct__full-article__featured-card'>
+						<div className='full-article__featured-card'>
 							<img src={urlFor(ffImage).url()} alt={ffImageAlt} />
-							<div className='ct__full-article__featured-card-components'>
+							<div className='full-article__featured-card-components'>
 								<h4>{ffTitle}</h4>
 								<p>{ffParagraph}</p>
 								<Link
-									className='ct__full-article__featured-card-components-link'
+									className='full-article__featured-card-components-link'
 									to={`/blog/${ffLink}`}
 								>
 									<button>
 										Read{' '}
-										<FiArrowUpRight className='ct__full-article__featured-card-arrow' />
+										<FiArrowUpRight className='full-article__featured-card-arrow' />
 									</button>
 								</Link>
 							</div>
 						</div>
 						<hr></hr>
-						<div className='ct__full-article__featured-card'>
+						<div className='full-article__featured-card'>
 							<div
-								className='ct__full-article__featured-card-components'
+								className='full-article__featured-card-components'
 								style={{ textAlign: 'right' }}
 							>
 								<h4>{fsTitle}</h4>
 								<p>{fsParagraph}</p>
 								<Link
-									className='ct__full-article__featured-card-components-link'
+									className='full-article__featured-card-components-link'
 									to={`/blog/${fsLink}`}
 								>
 									<button style={{ float: 'right' }}>
 										Read{' '}
-										<FiArrowUpRight className='ct__full-article__featured-card-arrow' />
+										<FiArrowUpRight className='full-article__featured-card-arrow' />
 									</button>
 								</Link>
 							</div>
 							<img src={urlFor(fsImage).url()} alt={fsImageAlt} />
 						</div>
 					</div>
-					<div className='ct__full-article__footer'>
+					<div className='full-article__footer'>
 						<hr className='hr__full-article__featured-last'></hr>
-						<div className='ct__navbar-logo_container'>
+						<div className='navbar-logo_container'>
 							<Link to={'/'}>
 								<img
 									src={logo_small_no_bg}
@@ -206,7 +207,7 @@ const FullArticle = () => {
 							</Link>
 						</div>
 						<div
-							className='ct__full-article__share-icons'
+							className='full-article__share-icons'
 							style={{
 								justifyContent: 'center',
 								gap: '1rem',
@@ -238,8 +239,8 @@ const FullArticle = () => {
 								/>
 							</a>
 						</div>
-						<div className='ct__full-article__footer'>
-							<h6 className='ct__full-article__footer-rights'>
+						<div className='full-article__footer'>
+							<h6 className='full-article__footer-rights'>
 								© 2023 Curiosity Takeover Official Blog • All
 								rights reserved.
 							</h6>

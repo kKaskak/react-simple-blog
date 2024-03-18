@@ -20,12 +20,10 @@ const Post = ({ post }) => {
 				style={{ textDecoration: 'none' }}
 				to={`/blog/${post.slug.current}`}
 			>
-				<img src={urlFor(post.previewImage)} alt={post.title} />
+				<img loading='lazy' src={urlFor(post.previewImage)} alt={post.title} />
 				<div className='blog-article-component-date'>
 					<p style={{ color: post.categoriesPreviewColor }}>
-						{post.categories
-							.map((category) => category.title)
-							.join(', ')}
+						{post.categories.map((category) => category.title).join(', ')}
 					</p>
 					<p style={{ color: post.publishedAtPreviewColor }}>
 						{post.publishedAt}

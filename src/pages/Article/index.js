@@ -1,2 +1,2 @@
 export { default as FullArticleHeader } from './FullArticleHeader';
-export { default as HelmetFullArticle } from './HelmetFullArticle';
+export { default as HelmetFullArticle } from './FullArticleHelmet';
