@@ -13,8 +13,8 @@ const Navbar = () => {
 		setToggleMenu((prev) => !prev);
 	};
 	return (
-		<div className='ct__navbar'>
-			<div className='ct__navbar-logo_container'>
+		<div className='navbar'>
+			<div className='navbar-logo_container'>
 				<Link to={'/'}>
 					<img
 						src={logo_small_no_bg}
@@ -25,10 +25,10 @@ const Navbar = () => {
 					<strong>Curiosity Takeover</strong>
 				</Link>
 			</div>
-			<div className='ct__navbar-mobile-menu'>
-				<div className='ct__navbar-items_container'>
-					{/* <div className='ct__navbar-items_search'><FiSearch /></div> */}
-					<div className='ct__navbar-items_email'>
+			<div className='navbar-mobile-menu'>
+				<div className='navbar-items_container'>
+					{/* <div className='navbar-items_search'><FiSearch /></div> */}
+					<div className='navbar-items_email'>
 						<a href='mailto:curiositytakeover@gmail.com'>
 							curiositytakeover@gmail.com
 						</a>
@@ -55,13 +55,13 @@ const Navbar = () => {
 						initial={'hidden'}
 						whileInView={'show'}
 						variants={container}
-						className='ct__navbar-mobile-menu-container'
+						className='navbar-mobile-menu-container'
 					>
 						<motion.div
 							initial={'hidden'}
 							whileInView={'show'}
 							variants={containerInner}
-							className='ct__navbar-mobile-menu-container-links'
+							className='navbar-mobile-menu-container-links'
 						>
 							<motion.p
 								variants={item}
