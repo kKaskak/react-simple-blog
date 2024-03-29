@@ -1,4 +1,4 @@
-# Sanity Blogging Content Studio
+# Sanity Blogging Content Studio // This is the backend of the blog where all of the schemas are located
 
 Congratulations, you have now installed the Sanity Content Studio, an open source real-time content editing environment connected to the Sanity backend.
 
