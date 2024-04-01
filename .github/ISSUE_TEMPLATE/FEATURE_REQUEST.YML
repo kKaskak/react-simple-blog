@@ -1,5 +1,5 @@
 name: "💡 Feature Request"
-description: Create a new ticket for a new feature request or enhancement for Stremio Web
+description: Create a new ticket for a new feature request or enhancement
 title: "💡 [REQUEST] - <title>"
 labels: [
   "question"
