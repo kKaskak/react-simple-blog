@@ -1,5 +1,5 @@
 name: "🐛 Bug Report"
-description: Create a new ticket for a bug report for Stremio Web
+description: Create a new ticket for a bug report
 title: "🐛 [BUG] - <title>"
 labels: [
   "bug"
