@@ -1,11 +1,7 @@
 import propTypes from 'prop-types';
 
 const PageLayout = ({ children }) => {
-	return (
-		<>
-			{children}
-		</>
-	);
+	return <>{children}</>;
 };
 
 export default PageLayout;

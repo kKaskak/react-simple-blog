@@ -1,13 +1,7 @@
 import { Helmet } from 'react-helmet';
 import propTypes from 'prop-types';
 
-const FullArticleHelmet = ({
-	title,
-	desc,
-	keywords,
-	slug,
-	headerImageLink,
-}) => {
+const FullArticleHelmet = ({ title, desc, keywords, slug, headerImageLink }) => {
 	return (
 		<Helmet>
 			<title>{title}</title>
@@ -17,10 +11,7 @@ const FullArticleHelmet = ({
 			<meta property='og:type' content='article' />
 			<meta property='og:title' content={title} />
 			<meta property='og:description' content={desc} />
-			<meta
-				property='og:url'
-				content={'https://curiositytakeover.com/blog/' + slug}
-			/>
+			<meta property='og:url' content={'https://curiositytakeover.com/blog/' + slug} />
 			<meta property='og:site_name' content='Curiosity Takeover' />
 			<meta property='og:image' content={headerImageLink} />
 			<meta property='og:image:width' content='1200' />

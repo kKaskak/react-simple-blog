@@ -9,7 +9,7 @@ import './BlogPost.css';
 const Post = React.lazy(() => import('../Post/Post'));
 
 const BlogPost = () => {
-	const [categoriesOpen,,, toggleCategories] = useBinaryState();
+	const [categoriesOpen, , , toggleCategories] = useBinaryState();
 	const [cards, setCards] = useState([]);
 	const [filterCards, setFilterCards] = useState([]);
 	const [activeFilter, setActiveFilter] = useState('All');
@@ -24,31 +24,25 @@ const BlogPost = () => {
 
 	const handleCardsFilter = (item) => {
 		setActiveFilter(item);
-		item === 'All' ? setFilterCards(cards)
-			: setFilterCards(cards.filter((card) => card.categories.some((category) => category.title === item)));
+		item === 'All' ? setFilterCards(cards) : setFilterCards(cards.filter((card) => card.categories.some((category) => category.title === item)));
 	};
 
 	return (
 		<>
-			<motion.div className={classNames('blog-categories', { 'open': categoriesOpen })}>
+			<motion.div className={classNames('blog-categories', { open: categoriesOpen })}>
 				{CATEGORIES.map((item, index) => (
 					<div
 						key={index}
 						onClick={() => handleCardsFilter(item)}
-						className={classNames('blog-categories-item', { 'active': activeFilter === item })}
+						className={classNames('blog-categories-item', { active: activeFilter === item })}
 					>
 						{item}
 					</div>
 				))}
 			</motion.div>
-			<div
-				onClick={toggleCategories}
-				className={classNames('blog-categories-item-last', { 'active': categoriesOpen })}
-			>
+			<div onClick={toggleCategories} className={classNames('blog-categories-item-last', { active: categoriesOpen })}>
 				{categoriesOpen ? <p>Less</p> : <p>More</p>}
-				<BsArrowDown
-					className={classNames('arrow', { 'active': categoriesOpen })}
-				/>
+				<BsArrowDown className={classNames('arrow', { active: categoriesOpen })} />
 			</div>
 			<div className='blog'>
 				{filterCards.map((post) => (

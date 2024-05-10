@@ -8,10 +8,7 @@ const BlogHelmet = () => {
 				name='description'
 				content='Explore a diverse range of articles on Fashion, Tech, Animals, Culture, Space, Earth, Health, Lifestyle, and Fitness. Discover valuable insights, latest trends, and expert perspectives in one convenient blog.'
 			/>
-			<meta
-				name='keywords'
-				content='Fashion, Tech, Animals, Culture, Space, Earth, Health, Lifestyle, Fitness, Article, Blog, Animals'
-			/>
+			<meta name='keywords' content='Fashion, Tech, Animals, Culture, Space, Earth, Health, Lifestyle, Fitness, Article, Blog, Animals' />
 			<meta property='og:locale' content='en_US' />
 			<meta property='og:type' content='blog' />
 			<meta property='og:title' content='Curiosity Blog Page' />
@@ -19,14 +16,8 @@ const BlogHelmet = () => {
 				property='og:description'
 				content='Curosity blog page. Discover a captivating blend of Fashion, Tech, Animals, Culture, Space, Earth, Health, Lifestyle, and Fitness.'
 			/>
-			<meta
-				property='og:url'
-				content='https://curiositytakeover.com/blog'
-			/>
-			<meta
-				property='og:site_name'
-				content='Curiosity Takeover Blog page'
-			/>
+			<meta property='og:url' content='https://curiositytakeover.com/blog' />
+			<meta property='og:site_name' content='Curiosity Takeover Blog page' />
 			<meta
 				property='og:image'
 				content='https://cdn.sanity.io/images/zeqqep1d/production/8fd4f7bbe00d780519edb6e20498da223fdb47da-2250x1272.png'

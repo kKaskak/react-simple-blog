@@ -11,11 +11,7 @@ const ErrorElement = () => {
 	return (
 		<div className='container--center'>
 			<h2 className='heading--big'>{errorResponse.statusText}</h2>
-			<button
-				onClick={handleNavigate}
-				className='btn'
-				style={{ marginTop: '1rem' }}
-			>
+			<button onClick={handleNavigate} className='btn' style={{ marginTop: '1rem' }}>
 				Home
 			</button>
 		</div>

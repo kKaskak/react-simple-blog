@@ -16,18 +16,11 @@ const Post = ({ post }) => {
 			key={post.slug.current}
 			className='blog-article-component'
 		>
-			<Link
-				style={{ textDecoration: 'none' }}
-				to={`/blog/${post.slug.current}`}
-			>
+			<Link style={{ textDecoration: 'none' }} to={`/blog/${post.slug.current}`}>
 				<img loading='lazy' src={urlFor(post.previewImage)} alt={post.title} />
 				<div className='blog-article-component-date'>
-					<p style={{ color: post.categoriesPreviewColor }}>
-						{post.categories.map((category) => category.title).join(', ')}
-					</p>
-					<p style={{ color: post.publishedAtPreviewColor }}>
-						{post.publishedAt}
-					</p>
+					<p style={{ color: post.categoriesPreviewColor }}>{post.categories.map((category) => category.title).join(', ')}</p>
+					<p style={{ color: post.publishedAtPreviewColor }}>{post.publishedAt}</p>
 				</div>
 				<div className='blog-article-component-title'>
 					<h3
@@ -58,7 +51,7 @@ Post.propTypes = {
 		categories: propTypes.arrayOf(
 			propTypes.shape({
 				title: propTypes.string,
-			})
+			}),
 		),
 		publishedAt: propTypes.string,
 		categoriesPreviewColor: propTypes.string,

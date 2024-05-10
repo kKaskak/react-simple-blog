@@ -23,18 +23,17 @@ const Blog = () => {
 		<>
 			<PageLayout>
 				<BlogHelmet />
-				{
-					isLoading ?
-						<Loading />
-					:
-						<>
-							<div className='blog-heading-container'>
-								<h1>Discover</h1>
-								<h4>New Articles</h4>
-							</div>
-							<BlogPost />
-						</>
-				}
+				{isLoading ? (
+					<Loading />
+				) : (
+					<>
+						<div className='blog-heading-container'>
+							<h1>Discover</h1>
+							<h4>New Articles</h4>
+						</div>
+						<BlogPost />
+					</>
+				)}
 			</PageLayout>
 		</>
 	);

@@ -1,11 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ArticlePreview, FeaturedArticle } from '../../components';
 import HelmetHome from './HelmetHome';
-import {
-	FeaturedContainer,
-	PreviewContainer,
-	hoverFeatured,
-} from './animations-home';
+import { FeaturedContainer, PreviewContainer, hoverFeatured } from './animations-home';
 import { motion } from 'framer-motion';
 import { client } from '../../client';
 import Slider from 'react-slick';
@@ -34,8 +30,7 @@ const Header = () => {
 
 	// Fetch from the CMS
 	useEffect(() => {
-		const query =
-			'*[_type == "post"]{..., "imageUrl": previewImage.asset->url,  "author": author->{name, image}, categories[]->{title}}';
+		const query = '*[_type == "post"]{..., "imageUrl": previewImage.asset->url,  "author": author->{name, image}, categories[]->{title}}';
 
 		client.fetch(query).then((data) => {
 			const featuredIndexes = [];
@@ -73,12 +68,7 @@ const Header = () => {
 					>
 						<FeaturedArticle article={featuredArticle[0]} />
 					</motion.div>
-					<motion.div
-						initial={'hidden'}
-						whileInView={'show'}
-						variants={PreviewContainer}
-						className='header-secondary'
-					>
+					<motion.div initial={'hidden'} whileInView={'show'} variants={PreviewContainer} className='header-secondary'>
 						{previewArticles.map((article, index) => (
 							<ArticlePreview key={index} article={article} />
 						))}

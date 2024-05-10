@@ -13,12 +13,7 @@ function App() {
 		};
 	}, []);
 
-	return (
-		<PageLayout>
-			{!isLoaded ? <Loading /> : <Header />}
-		</PageLayout>
-	);
+	return <PageLayout>{!isLoaded ? <Loading /> : <Header />}</PageLayout>;
 }
 
 export default App;
-
