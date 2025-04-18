@@ -5,19 +5,21 @@ import { RouterProvider } from 'react-router-dom';
 import './index.css';
 
 const rootElement = document.getElementById('root');
+const isProduction = process.env.NODE_ENV === 'production';
+
+const AppRoot = () => (
+	isProduction ? (
+		<RouterProvider router={router} />
+	) : (
+		<React.StrictMode>
+			<RouterProvider router={router} />
+		</React.StrictMode>
+	)
+);
 
 if (rootElement.hasChildNodes()) {
-	ReactDOM.hydrateRoot(
-		rootElement,
-		<React.StrictMode>
-			<RouterProvider router={router} />
-		</React.StrictMode>,
-	);
+	ReactDOM.hydrateRoot(rootElement, <AppRoot />);
 } else {
 	const root = ReactDOM.createRoot(rootElement);
-	root.render(
-		<React.StrictMode>
-			<RouterProvider router={router} />
-		</React.StrictMode>,
-	);
+	root.render(<AppRoot />);
 }
