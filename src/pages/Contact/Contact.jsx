@@ -102,7 +102,7 @@ const Contact = () => {
 					</a>
 				</div>
 				<div className='contact-waves__rights'>
-					<h6>© 2023 Curiosity Takeover Offcial Blog • All rights reserved.</h6>
+					<h6>© 2025 Curiosity Takeover Offcial Blog • All rights reserved.</h6>
 					<h6>
 						Created with love ❤️ • by{' '}
 						<a rel='noreferrer' target='_blank' href='https://timothy-z.xyz'>
