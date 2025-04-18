@@ -1,84 +1,120 @@
 {
-	"name": "blog-project",
-	"version": "0.1.0",
-	"private": true,
-	"scripts": {
-		"start": "react-scripts start",
-		"build": "react-scripts build",
-		"test": "react-scripts test",
-		"eject": "react-scripts eject",
-		"postbuild": "react-snap"
-	},
-	"reactSnap": {
-		"include": [
-			"/",
-			"/blog",
-			"/contact"
-		],
-		"inlineCss": true,
-		"puppeteerArgs": [
-			"--no-sandbox",
-			"--disable-setuid-sandbox"
-		]
-	},
-	"eslintConfig": {
-		"extends": [
-			"react-app",
-			"react-app/jest"
-		]
-	},
-	"browserslist": {
-		"production": [
-			">0.2%",
-			"not dead",
-			"not op_mini all"
-		],
-		"development": [
-			"last 1 chrome version",
-			"last 1 firefox version",
-			"last 1 safari version"
-		]
-	},
-	"devDependencies": {
-		"@rollup/plugin-terser": "^0.4.3",
-		"@sanity/block-content-to-react": "^3.0.0",
-		"@sanity/cli": "^3.16.7",
-		"@sanity/client": "^6.4.12",
-		"@sanity/code-input": "^4.1.1",
-		"@sanity/image-url": "^1.0.2",
-		"@sanity/scheduled-publishing": "^1.2.1",
-		"@testing-library/jest-dom": "^6.1.3",
-		"@testing-library/react": "^14.0.0",
-		"@testing-library/user-event": "^14.5.1",
-		"bun-types": "latest",
-		"framer-motion": "^10.16.4",
-		"npm": "^10.1.0",
-		"prettier": "^3.2.5",
-		"react": "^18.2.0",
-		"react-dom": "^18.2.0",
-		"react-helmet": "^6.1.0",
-		"react-icons": "^4.11.0",
-		"react-router-dom": "^6.16.0",
-		"react-scripts": "^5.0.1",
-		"react-slick": "^0.29.0",
-		"react-snap": "^1.23.0",
-		"sanity": "^3.16.7",
-		"sanity-plugin-media": "^2.2.2",
-		"sitemap": "^7.1.1",
-		"slick-carousel": "^1.8.1",
-		"update": "^0.7.4",
-		"web-vitals": "^3.4.0"
-	},
-	"dependencies": {
-		"@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-		"@babel/traverse": "^7.24.1",
-		"classnames": "^2.5.1",
-		"cross-spawn": "^7.0.3",
-		"eslint": "^8.57.0",
-		"eslint-plugin-react": "^7.33.2",
-		"prop-types": "^15.8.1",
-		"puppeteer": "^22.6.1",
-		"react-dev-utils": "^12.0.1",
-		"vite": "^5.2.5"
-	}
+  "name": "blog-project",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "prebuild": "node scripts/generate-sitemap-urls.js",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "postbuild": "react-snap",
+    "update-sitemap-urls": "node scripts/generate-sitemap-urls.js"
+  },
+  "reactSnap": {
+    "include": [
+      "/",
+      "/blog/iceland-drinking-age-how-old-do-you-need-to-be",
+      "/blog/how-to-do-ring-muscle-ups",
+      "/blog/unveiling-the-truth-what-giraffes-really-eat",
+      "/blog/how-big-is-a-16-inch-pizza",
+      "/blog/typeframes-product-videos-made-easy",
+      "/blog",
+      "/blog/places-to-visit-in-bulgaria",
+      "/blog/croatia-drinking-age-a-handy-guide-for-tourists",
+      "/blog/how-to-improve-squat-depth",
+      "/blog/eccentric-bicep-curls-a-powerful-way-to-build-strength",
+      "/blog/apple-new-apple-ar-headset-just-around-the-corner",
+      "/blog/achieving-the-perfect-look-balancing-fashion-and-practicality",
+      "/blog/can-bearded-dragons-eat-pineapple",
+      "/blog/can-hamsters-eat-watermelon",
+      "/blog/klap-app-generate-tiktoks-in-seconds",
+      "/blog/what-is-commonly-misdiagnosed-as-pink-eye",
+      "/blog/how-long-will-fleas-live-in-a-house-without-pets",
+      "/blog/what-is-the-legal-drinking-age-in-mexico",
+      "/blog/can-dogs-eat-almond-butter",
+      "/blog/is-turkey-sausage-healthy",
+      "/blog/are-elephants-friendly",
+      "/blog/what-is-the-language-spoken-in-norway",
+      "/blog/what-is-a-drop-zone-in-a-house",
+      "/blog/best-hotels-in-turkey-excellence-of-nirvana",
+      "/blog/do-people-in-iceland-speak-english-a-language-guide-for-visitors",
+      "/blog/best-basketball-shoes-for-volleyball",
+      "/blog/can-you-wear-white-shoes-to-a-wedding",
+      "/blog/legal-drinking-age-in-turkey",
+      "/blog/drinking-age-in-greece-insights-into-regulations",
+      "/blog/leopard-gecko-your-guide-to-varieties-and-care",
+      "/blog/does-listening-to-music-count-as-screen-time",
+      "/blog/online-side-hustles-to-make-money",
+      "/blog/lower-back-pain-deadlift-reasons-and-treatment",
+      "/blog/can-you-freeze-potato-salad"
+    ],
+    "crawl": true,
+    "inlineCss": true,
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@rollup/plugin-terser": "^0.4.3",
+    "@sanity/block-content-to-react": "^3.0.0",
+    "@sanity/cli": "^3.16.7",
+    "@sanity/client": "^6.4.12",
+    "@sanity/code-input": "^4.1.1",
+    "@sanity/image-url": "^1.0.2",
+    "@sanity/scheduled-publishing": "^1.2.1",
+    "@testing-library/jest-dom": "^6.1.3",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.5.1",
+    "bun-types": "latest",
+    "framer-motion": "^10.16.4",
+    "npm": "^10.1.0",
+    "prettier": "^3.2.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
+    "react-icons": "^4.11.0",
+    "react-router-dom": "^6.16.0",
+    "react-scripts": "^5.0.1",
+    "react-slick": "^0.29.0",
+    "react-snap": "^1.23.0",
+    "sanity": "^3.16.7",
+    "sanity-plugin-media": "^2.2.2",
+    "sitemap": "^7.1.1",
+    "slick-carousel": "^1.8.1",
+    "update": "^0.7.4",
+    "web-vitals": "^3.4.0",
+    "xml2js": "^0.6.2"
+  },
+  "dependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@babel/traverse": "^7.24.1",
+    "classnames": "^2.5.1",
+    "cross-spawn": "^7.0.3",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.33.2",
+    "prop-types": "^15.8.1",
+    "puppeteer": "^22.6.1",
+    "react-dev-utils": "^12.0.1",
+    "vite": "^5.2.5"
+  }
 }
