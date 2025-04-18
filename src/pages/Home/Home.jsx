@@ -23,7 +23,7 @@ const settings = {
 	pauseOnHover: true,
 };
 
-const Header = () => {
+const Home = () => {
 	const [featuredArticle, setFeaturedArticle] = useState([]);
 	const [previewArticles, setPreviewArticles] = useState([]);
 	const isMobile = useMobileDevice();
@@ -92,4 +92,4 @@ const Header = () => {
 	);
 };
 
-export default Header;
+export default Home;

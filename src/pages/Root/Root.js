@@ -1,13 +1,13 @@
-import { Navbar, PageLayout } from '../../components';
+import { Navbar } from '../../components';
 import { Outlet, ScrollRestoration } from 'react-router-dom';
 
 const Root = () => {
 	return (
-		<PageLayout>
+		<>
+			<ScrollRestoration />
 			<Navbar />
 			<Outlet />
-			<ScrollRestoration />
-		</PageLayout>
+		</>
 	);
 };
 
