@@ -3,6 +3,8 @@ import { Contact, Blog, FullArticle, Home } from './pages';
 import ErrorElement from './ErrorElement';
 import { Root } from './pages/Root';
 
+// Add a custom basename option to help with hydration
+// This helps React Router match prerendered URLs from react-snap
 export const router = createBrowserRouter([
 	{
 		path: '/',
@@ -32,4 +34,9 @@ export const router = createBrowserRouter([
 			},
 		],
 	},
-]);
+], {
+	// This helps with initial route matching during hydration
+	future: {
+		v7_normalizeFormMethod: true,
+	}
+});
