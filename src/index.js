@@ -5,16 +5,10 @@ import { RouterProvider } from 'react-router-dom';
 import './index.css';
 
 const rootElement = document.getElementById('root');
-const isProduction = process.env.NODE_ENV === 'production';
 
 const AppRoot = () => (
-	isProduction ? (
-		<RouterProvider router={router} />
-	) : (
-		<React.StrictMode>
-			<RouterProvider router={router} />
-		</React.StrictMode>
-	)
+	<RouterProvider router={router} />
+
 );
 
 if (rootElement.hasChildNodes()) {
