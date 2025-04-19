@@ -105,7 +105,7 @@ const Contact = () => {
 					<h6>© 2025 Curiosity Takeover Offcial Blog • All rights reserved.</h6>
 					<h6>
 						Created with love ❤️ • by{' '}
-						<a rel='noreferrer' target='_blank' href='https://timothy-z.xyz'>
+						<a rel='noreferrer' target='_blank' href='https://kkaskak.com'>
 							kKaskak
 						</a>
 						.
