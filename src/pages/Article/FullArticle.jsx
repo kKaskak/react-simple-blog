@@ -65,14 +65,18 @@ const FullArticle = () => {
 	const serializers = {
 		types: {
 			block: (props) => {
-				// Get the current block index
-				const blockIndex = body.findIndex((block) => block._key === props.node._key);
+				// Only count paragraph blocks for ad insertion
+				const paragraphBlocks = body.filter((block) => block._type === 'block' && block.style === 'normal');
 
-				// Add an ad after every 3 blocks (paragraphs)
-				// You can adjust the frequency as needed
-				if (blockIndex > 0 && blockIndex % 3 === 0) {
+				// eslint-disable-next-line react/prop-types
+				const paragraphIndex = paragraphBlocks.findIndex((block) => block._key === props.node._key);
+
+				// Add ad after every 5 paragraphs
+				// eslint-disable-next-line react/prop-types
+				if (paragraphIndex > 0 && paragraphIndex % 5 === 0 && props.node.style === 'normal') {
 					return (
 						<>
+							{/* eslint-disable-next-line react/prop-types */}
 							{props.node.children.length > 0 && <p>{props.node.children.map((child) => child.text).join('')}</p>}
 							<div className='full-article__ad-container'>
 								<GoogleAdSense
@@ -86,12 +90,11 @@ const FullArticle = () => {
 					);
 				}
 
-				// Regular paragraph rendering
+				// Regular block rendering
 				return BlockContent.defaultSerializers.types.block(props);
 			},
 		},
 	};
-
 	return (
 		<>
 			<FullArticleHelmet slug={slug} title={title} desc={desc} keywords={keywords} headerImageLink={headerImageLink} />
