@@ -8,18 +8,9 @@ import { logo_small_no_bg } from '../../assets/logo';
 import { linkedin, aTwisted, xcorp } from '../../assets/imgs';
 import { BsFacebook, BsPinterest, BsReddit } from 'react-icons/bs';
 import { FiArrowUpRight } from 'react-icons/fi';
-import './FullArticle.css';
 import FullArticleHelmet from './FullArticleHelmet';
 import GoogleAdSense from './ads/GoogleAdSense';
-
-// Helper to detect if we're in a pre-rendering environment
-const isPrerendering = () => {
-	return (
-		typeof navigator !== 'undefined' &&
-		navigator.userAgent &&
-		(navigator.userAgent.includes('ReactSnap') || navigator.userAgent.includes('Headless') || navigator.userAgent.includes('puppeteer'))
-	);
-};
+import './FullArticle.css';
 
 const FullArticle = () => {
 	const [singlePost, setSinglePost] = useState({});
@@ -142,16 +133,14 @@ const FullArticle = () => {
 						<BlockContent blocks={body} projectId='zeqqep1d' dataset='production' serializers={serializers} />
 					</div>
 					{/* Only render ads in browser, not during pre-rendering */}
-					{!isPrerendering() && (
-						<div className='full-article__ad-container'>
-							<GoogleAdSense
-								slot='3456509173'
-								format='fluid'
-								layout='in-article'
-								style={{ display: 'block', textAlign: 'center', margin: '2rem 0' }}
-							/>
-						</div>
-					)}
+					<div className='full-article__ad-container'>
+						<GoogleAdSense
+							slot='3456509173'
+							format='fluid'
+							layout='in-article'
+							style={{ display: 'block', textAlign: 'center', margin: '2rem 0' }}
+						/>
+					</div>
 
 					<div className='full-article__share'>
 						<hr className='hr-full-article'></hr>
@@ -198,19 +187,14 @@ const FullArticle = () => {
 						</div>
 						<hr className='hr-full-article-last'></hr>
 					</div>
-
-					{/* Ad before featured content - only in browser */}
-					{!isPrerendering() && (
-						<div className='full-article__ad-container'>
-							<GoogleAdSense
-								slot='3456509173'
-								format='fluid'
-								layout='in-article'
-								style={{ display: 'block', textAlign: 'center', margin: '1.5rem 0' }}
-							/>
-						</div>
-					)}
-
+					<div className='full-article__ad-container'>
+						<GoogleAdSense
+							slot='3456509173'
+							format='fluid'
+							layout='in-article'
+							style={{ display: 'block', textAlign: 'center', margin: '1.5rem 0' }}
+						/>
+					</div>
 					<div className='full-article__featured'>
 						<h3>Featured for you</h3>
 						<hr></hr>
