@@ -16,13 +16,27 @@ async function extractUrlsFromSitemap() {
 
 		// Extract URLs
 		const urls = result.urlset.url.map((urlObj) => {
-			const fullUrl = urlObj.loc[0];
-			// Convert full URL to path (remove domain)
-			return new URL(fullUrl).pathname;
-		});
+			try {
+				const fullUrl = urlObj.loc[0];
+				// Convert full URL to path (remove domain)
+				const url = new URL(fullUrl);
+				return url.pathname;
+			} catch (error) {
+				console.error(`Error processing URL: ${urlObj.loc[0]}`);
+				console.error(error);
+				return null;
+			}
+		}).filter(url => url !== null && url.startsWith('/'));
+
+		console.log(`Extracted ${urls.length} valid URLs from sitemap.xml`);
 
 		// Read package.json
 		const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
+
+		// Make sure reactSnap config exists
+		if (!packageJson.reactSnap) {
+			packageJson.reactSnap = {};
+		}
 
 		// Update reactSnap configuration
 		packageJson.reactSnap.include = urls;

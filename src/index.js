@@ -1,20 +1,28 @@
-import * as ReactDOM from 'react-dom/client';
-import { router } from './router';
-import { RouterProvider } from 'react-router-dom';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import './index.css';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './router';
+import { HelmetProvider } from 'react-helmet-async';
 
-const rootElement = document.getElementById('root');
+// Create the Helmet context for SEO
+const helmetContext = {};
 
-// Simple React Router app with no wrapper complexity
-const App = () => <RouterProvider router={router} />;
+// Use ReactDOM.createRoot for React 18
+const root = ReactDOM.createRoot(document.getElementById('root'));
 
-// Only use hydrateRoot when pre-rendered content exists
-// This is the case when react-snap has pre-rendered the page
-if (rootElement.hasChildNodes()) {
-	// Use the same router instance for hydration to properly match routes
-	ReactDOM.hydrateRoot(rootElement, <App />);
-} else {
-	// Fresh render (development mode)
-	const root = ReactDOM.createRoot(rootElement);
-	root.render(<App />);
+root.render(
+	<React.StrictMode>
+		<HelmetProvider context={helmetContext}>
+			<RouterProvider router={router} />
+		</HelmetProvider>
+	</React.StrictMode>,
+);
+
+// Add event listener for when the React app has been hydrated on client-side
+// This tells crawlers when the page is fully loaded
+if (typeof window !== 'undefined') {
+	window.onload = () => {
+		document.dispatchEvent(new Event('app-rendered'));
+	};
 }

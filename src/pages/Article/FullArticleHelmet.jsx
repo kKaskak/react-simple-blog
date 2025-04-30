@@ -1,7 +1,7 @@
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import propTypes from 'prop-types';
 
-const FullArticleHelmet = ({ title, desc, keywords, slug, headerImageLink }) => {
+const FullArticleHelmet = ({ slug, title, desc, keywords, headerImageLink }) => {
 	return (
 		<Helmet>
 			<title>{title}</title>
@@ -14,9 +14,12 @@ const FullArticleHelmet = ({ title, desc, keywords, slug, headerImageLink }) => 
 			<meta property='og:url' content={'https://curiositytakeover.com/blog/' + slug} />
 			<meta property='og:site_name' content='Curiosity Takeover' />
 			<meta property='og:image' content={headerImageLink} />
-			<meta property='og:image:width' content='1200' />
-			<meta property='og:image:height' content='800' />
-			<meta property='og:image:type' content='image/png' />
+			<meta property='og:url' content={`https://www.curiositytakeover.com/blog/${slug}`} />
+			<meta property='og:site_name' content='Curiosity Takeover Blog' />
+			<meta property='og:type' content='article' />
+			<meta name='twitter:title' content={title} />
+			<meta name='twitter:description' content={desc} />
+			<meta name='twitter:image' content={headerImageLink} />
 			<meta name='twitter:card' content='summary_large_image' />
 			<meta name='twitter:creator' content='@curiosity__blog' />
 			<meta name='twitter:site' content='@curiosity__blog' />
