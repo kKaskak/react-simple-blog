@@ -12,6 +12,10 @@
     "update-sitemap-urls": "node scripts/generate-sitemap-urls.js"
   },
   "reactSnap": {
+    "exclude": [
+      "/404",
+      "/404.html"
+    ],
     "include": [
       "/",
       "/blog/iceland-drinking-age-how-old-do-you-need-to-be",
