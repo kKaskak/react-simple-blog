@@ -56,6 +56,8 @@
       "collapseWhitespace": false,
       "removeComments": false
     },
+    "puppeteerIgnoreHTTPSErrors": true,
+    "skipThirdPartyRequests": true,
     "puppeteerArgs": [
       "--no-sandbox",
       "--disable-setuid-sandbox"
