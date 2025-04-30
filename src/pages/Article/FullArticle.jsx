@@ -12,8 +12,18 @@ import './FullArticle.css';
 import FullArticleHelmet from './FullArticleHelmet';
 import GoogleAdSense from './ads/GoogleAdSense';
 
+// Helper to detect if we're in a pre-rendering environment
+const isPrerendering = () => {
+	return (
+		typeof navigator !== 'undefined' &&
+		navigator.userAgent &&
+		(navigator.userAgent.includes('ReactSnap') || navigator.userAgent.includes('Headless') || navigator.userAgent.includes('puppeteer'))
+	);
+};
+
 const FullArticle = () => {
 	const [singlePost, setSinglePost] = useState({});
+	const [adIndexes, setAdIndexes] = useState([]);
 	const { slug } = useParams();
 
 	useEffect(() => {
@@ -28,6 +38,23 @@ const FullArticle = () => {
     }`;
 		client.fetch(query).then((data) => {
 			setSinglePost(data[0]);
+
+			// Calculate ad positions only after content is loaded
+			if (data[0] && data[0].body) {
+				// Find paragraph blocks
+				const paragraphBlocks = data[0].body.filter((block) => block._type === 'block' && block.style === 'normal');
+
+				// Create array of indexes to place ads (after every 5th paragraph)
+				const adIndexPositions = [];
+				for (let i = 5; i < paragraphBlocks.length; i += 5) {
+					const blockIndex = data[0].body.findIndex((block) => block._key === paragraphBlocks[i]._key);
+					if (blockIndex !== -1) {
+						adIndexPositions.push(blockIndex);
+					}
+				}
+
+				setAdIndexes(adIndexPositions);
+			}
 		});
 	}, [slug]);
 
@@ -61,23 +88,21 @@ const FullArticle = () => {
 		titleFilter,
 	} = singlePost;
 
-	// Function to insert ads between blocks of content
+	// Improved serializers for better ad placement
 	const serializers = {
 		types: {
 			block: (props) => {
-				// Only count paragraph blocks for ad insertion
-				const paragraphBlocks = body.filter((block) => block._type === 'block' && block.style === 'normal');
-
+				// Get the current block index
 				// eslint-disable-next-line react/prop-types
-				const paragraphIndex = paragraphBlocks.findIndex((block) => block._key === props.node._key);
+				const blockIndex = body.findIndex((block) => block._key === props.node._key);
 
-				// Add ad after every 5 paragraphs
-				// eslint-disable-next-line react/prop-types
-				if (paragraphIndex > 0 && paragraphIndex % 5 === 0 && props.node.style === 'normal') {
+				// Check if this block should have an ad after it
+				const shouldHaveAd = adIndexes.includes(blockIndex);
+
+				if (shouldHaveAd) {
 					return (
 						<>
-							{/* eslint-disable-next-line react/prop-types */}
-							{props.node.children.length > 0 && <p>{props.node.children.map((child) => child.text).join('')}</p>}
+							{BlockContent.defaultSerializers.types.block(props)}
 							<div className='full-article__ad-container'>
 								<GoogleAdSense
 									slot='3456509173'
@@ -90,11 +115,12 @@ const FullArticle = () => {
 					);
 				}
 
-				// Regular block rendering
+				// Regular paragraph rendering
 				return BlockContent.defaultSerializers.types.block(props);
 			},
 		},
 	};
+
 	return (
 		<>
 			<FullArticleHelmet slug={slug} title={title} desc={desc} keywords={keywords} headerImageLink={headerImageLink} />
@@ -115,15 +141,17 @@ const FullArticle = () => {
 					<div className='full-article-block__content'>
 						<BlockContent blocks={body} projectId='zeqqep1d' dataset='production' serializers={serializers} />
 					</div>
-					{/* Ad after article content */}
-					<div className='full-article__ad-container'>
-						<GoogleAdSense
-							slot='3456509173'
-							format='fluid'
-							layout='in-article'
-							style={{ display: 'block', textAlign: 'center', margin: '2rem 0' }}
-						/>
-					</div>
+					{/* Only render ads in browser, not during pre-rendering */}
+					{!isPrerendering() && (
+						<div className='full-article__ad-container'>
+							<GoogleAdSense
+								slot='3456509173'
+								format='fluid'
+								layout='in-article'
+								style={{ display: 'block', textAlign: 'center', margin: '2rem 0' }}
+							/>
+						</div>
+					)}
 
 					<div className='full-article__share'>
 						<hr className='hr-full-article'></hr>
@@ -171,15 +199,17 @@ const FullArticle = () => {
 						<hr className='hr-full-article-last'></hr>
 					</div>
 
-					{/* Ad before featured content */}
-					<div className='full-article__ad-container'>
-						<GoogleAdSense
-							slot='3456509173'
-							format='fluid'
-							layout='in-article'
-							style={{ display: 'block', textAlign: 'center', margin: '1.5rem 0' }}
-						/>
-					</div>
+					{/* Ad before featured content - only in browser */}
+					{!isPrerendering() && (
+						<div className='full-article__ad-container'>
+							<GoogleAdSense
+								slot='3456509173'
+								format='fluid'
+								layout='in-article'
+								style={{ display: 'block', textAlign: 'center', margin: '1.5rem 0' }}
+							/>
+						</div>
+					)}
 
 					<div className='full-article__featured'>
 						<h3>Featured for you</h3>
