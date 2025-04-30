@@ -10,6 +10,7 @@ import { BsFacebook, BsPinterest, BsReddit } from 'react-icons/bs';
 import { FiArrowUpRight } from 'react-icons/fi';
 import './FullArticle.css';
 import FullArticleHelmet from './FullArticleHelmet';
+import GoogleAdSense from './ads/GoogleAdSense';
 
 const FullArticle = () => {
 	const [singlePost, setSinglePost] = useState({});
@@ -60,6 +61,37 @@ const FullArticle = () => {
 		titleFilter,
 	} = singlePost;
 
+	// Function to insert ads between blocks of content
+	const serializers = {
+		types: {
+			block: (props) => {
+				// Get the current block index
+				const blockIndex = body.findIndex((block) => block._key === props.node._key);
+
+				// Add an ad after every 3 blocks (paragraphs)
+				// You can adjust the frequency as needed
+				if (blockIndex > 0 && blockIndex % 3 === 0) {
+					return (
+						<>
+							{props.node.children.length > 0 && <p>{props.node.children.map((child) => child.text).join('')}</p>}
+							<div className='full-article__ad-container'>
+								<GoogleAdSense
+									slot='3456509173'
+									format='fluid'
+									layout='in-article'
+									style={{ display: 'block', textAlign: 'center', margin: '2rem 0' }}
+								/>
+							</div>
+						</>
+					);
+				}
+
+				// Regular paragraph rendering
+				return BlockContent.defaultSerializers.types.block(props);
+			},
+		},
+	};
+
 	return (
 		<>
 			<FullArticleHelmet slug={slug} title={title} desc={desc} keywords={keywords} headerImageLink={headerImageLink} />
@@ -78,8 +110,18 @@ const FullArticle = () => {
 						categories={categories}
 					/>
 					<div className='full-article-block__content'>
-						<BlockContent blocks={body} projectId='zeqqep1d' dataset='production' />
+						<BlockContent blocks={body} projectId='zeqqep1d' dataset='production' serializers={serializers} />
 					</div>
+					{/* Ad after article content */}
+					<div className='full-article__ad-container'>
+						<GoogleAdSense
+							slot='3456509173'
+							format='fluid'
+							layout='in-article'
+							style={{ display: 'block', textAlign: 'center', margin: '2rem 0' }}
+						/>
+					</div>
+
 					<div className='full-article__share'>
 						<hr className='hr-full-article'></hr>
 						<div className='full-article__share-header'>
@@ -125,6 +167,17 @@ const FullArticle = () => {
 						</div>
 						<hr className='hr-full-article-last'></hr>
 					</div>
+
+					{/* Ad before featured content */}
+					<div className='full-article__ad-container'>
+						<GoogleAdSense
+							slot='3456509173'
+							format='fluid'
+							layout='in-article'
+							style={{ display: 'block', textAlign: 'center', margin: '1.5rem 0' }}
+						/>
+					</div>
+
 					<div className='full-article__featured'>
 						<h3>Featured for you</h3>
 						<hr></hr>

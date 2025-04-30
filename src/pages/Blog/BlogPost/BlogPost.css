@@ -90,3 +90,37 @@
 .arrow.active {
 	transform: rotate(-180deg);
 }
+
+/* Add these styles to your existing BlogPost.css file */
+
+/* Style for the loading placeholder */
+.post-loading-placeholder {
+	width: 100%;
+	height: 300px;
+	background-color: rgba(0, 0, 0, 0.05);
+	border-radius: 8px;
+	margin: 1rem;
+	flex-basis: calc(33.333% - 2rem);
+	min-width: 300px;
+}
+
+/* Make sure ads fit nicely in the grid */
+.blog {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: stretch; /* This helps ensure all cards (including ads) have the same height */
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 969px) {
+	.post-loading-placeholder {
+		flex-basis: calc(50% - 2rem);
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.post-loading-placeholder {
+		flex-basis: 100%;
+	}
+}

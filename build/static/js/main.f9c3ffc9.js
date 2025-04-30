@@ -8185,7 +8185,7 @@
 										'http://www.w3.org/1999/xhtml' === e && (e = se(n)),
 										'http://www.w3.org/1999/xhtml' === e
 											? 'script' === n
-												? (((e = l.createElement('div')).innerHTML = '<script><\/script>'), (e = e.removeChild(e.firstChild)))
+												? (((e = l.createElement('div')).innerHTML = '<script></script>'), (e = e.removeChild(e.firstChild)))
 												: 'string' === typeof r.is
 													? (e = l.createElement(n, { is: r.is }))
 													: ((e = l.createElement(n)),

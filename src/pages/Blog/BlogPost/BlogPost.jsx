@@ -4,11 +4,14 @@ import { BsArrowDown } from 'react-icons/bs';
 import { CATEGORIES, useBinaryState } from '../../../common';
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
+import AdCard from './AdCard/AdCard';
+import FeaturedBlogAd from './FeaturedBlogAd/FeaturedBlogAd';
 import './BlogPost.css';
 
 const Post = React.lazy(() => import('../Post/Post'));
 
 const POSTS_PER_PAGE = 10;
+const AD_FREQUENCY = 5; // Show an ad after every 5 posts
 
 const BlogPost = () => {
 	const [categoriesOpen, , closeCategoriesOpen, toggleCategories] = useBinaryState();
@@ -88,6 +91,27 @@ const BlogPost = () => {
 		}
 	};
 
+	// Function to render posts with interspersed ads
+	const renderPostsWithAds = () => {
+		const postsWithAds = [];
+
+		posts.forEach((post, index) => {
+			// Add the regular post
+			postsWithAds.push(
+				<Suspense key={post.slug.current} fallback={<div className='post-loading-placeholder'></div>}>
+					<Post post={post} />
+				</Suspense>,
+			);
+
+			// After every 5th post, add an ad (but not if it's the very last post)
+			if ((index + 1) % AD_FREQUENCY === 0 && index < posts.length - 1) {
+				postsWithAds.push(<AdCard key={`ad-${index}`} />);
+			}
+		});
+
+		return postsWithAds;
+	};
+
 	return (
 		<>
 			<motion.div className={classNames('blog-categories', { open: categoriesOpen })}>
@@ -105,12 +129,9 @@ const BlogPost = () => {
 				{categoriesOpen ? <p>Less</p> : <p>More</p>}
 				<BsArrowDown className={classNames('arrow', { active: categoriesOpen })} />
 			</div>
+			<FeaturedBlogAd />
 			<div className='blog'>
-				{posts.map((post) => (
-					<Suspense key={post.slug.current}>
-						<Post post={post} />
-					</Suspense>
-				))}
+				{renderPostsWithAds()}
 				<div ref={loader} style={{ height: '20px', margin: '10px 0' }} />
 			</div>
 		</>
