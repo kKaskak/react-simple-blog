@@ -15,9 +15,17 @@ import './FullArticle.css';
 const FullArticle = () => {
 	const [singlePost, setSinglePost] = useState({});
 	const [adIndexes, setAdIndexes] = useState([]);
+	const [isLoading, setIsLoading] = useState(true);
+	const [error, setError] = useState(null);
 	const { slug } = useParams();
 
+	// Check if we're in react-snap pre-rendering
+	const isReactSnap = typeof window !== 'undefined' && window.navigator && window.navigator.userAgent === 'ReactSnapBot';
+
 	useEffect(() => {
+		setIsLoading(true);
+		setError(null);
+
 		const query = `*[slug.current == "${slug}"]{
       ..., 
       categories[]->{title}, 
@@ -27,31 +35,80 @@ const FullArticle = () => {
         bio
       }
     }`;
-		client.fetch(query).then((data) => {
-			setSinglePost(data[0]);
 
-			// Calculate ad positions only after content is loaded
-			if (data[0] && data[0].body) {
-				// Find paragraph blocks
-				const paragraphBlocks = data[0].body.filter((block) => block._type === 'block' && block.style === 'normal');
+		client
+			.fetch(query)
+			.then((data) => {
+				if (data && data.length > 0) {
+					setSinglePost(data[0]);
 
-				// Create array of indexes to place ads (after every 5th paragraph)
-				const adIndexPositions = [];
-				for (let i = 5; i < paragraphBlocks.length; i += 5) {
-					const blockIndex = data[0].body.findIndex((block) => block._key === paragraphBlocks[i]._key);
-					if (blockIndex !== -1) {
-						adIndexPositions.push(blockIndex);
+					// Calculate ad positions only after content is loaded
+					if (data[0] && data[0].body) {
+						// Find paragraph blocks
+						const paragraphBlocks = data[0].body.filter((block) => block._type === 'block' && block.style === 'normal');
+
+						// Create array of indexes to place ads (after every 5th paragraph)
+						const adIndexPositions = [];
+						for (let i = 5; i < paragraphBlocks.length; i += 5) {
+							const blockIndex = data[0].body.findIndex((block) => block._key === paragraphBlocks[i]._key);
+							if (blockIndex !== -1) {
+								adIndexPositions.push(blockIndex);
+							}
+						}
+
+						setAdIndexes(adIndexPositions);
 					}
+				} else {
+					setError('Post not found');
 				}
-
-				setAdIndexes(adIndexPositions);
-			}
-		});
+				setIsLoading(false);
+			})
+			.catch((err) => {
+				console.error('Error fetching article:', err);
+				setError('Failed to load article');
+				setIsLoading(false);
+			});
 	}, [slug]);
 
-	if (!singlePost || !singlePost.headerImage || !singlePost.author || !singlePost.body) {
-		return null;
+	// Show loading or error state
+	if (isLoading) {
+		return (
+			<PageLayout>
+				<div className='full-article' style={{ minHeight: '60vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+					<h2>Loading article...</h2>
+				</div>
+			</PageLayout>
+		);
 	}
+
+	if (error || !singlePost || !singlePost.headerImage || !singlePost.author || !singlePost.body) {
+		// Return fallback content when there's an error or missing data
+		if (isReactSnap) {
+			// During pre-rendering, just return minimal content to avoid errors
+			return (
+				<PageLayout>
+					<div className='full-article'>
+						<h1>Article is loading...</h1>
+						<p>This content will be fully rendered in the browser.</p>
+					</div>
+				</PageLayout>
+			);
+		}
+
+		return (
+			<PageLayout>
+				<div
+					className='full-article'
+					style={{ minHeight: '60vh', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}
+				>
+					<h2>Unable to load article</h2>
+					<p>{error || 'Something went wrong'}</p>
+					<Link to='/blog'>Return to articles</Link>
+				</div>
+			</PageLayout>
+		);
+	}
+
 	const {
 		keywords,
 		desc,
@@ -132,7 +189,7 @@ const FullArticle = () => {
 					<div className='full-article-block__content'>
 						<BlockContent blocks={body} projectId='zeqqep1d' dataset='production' serializers={serializers} />
 					</div>
-					{/* Only render ads in browser, not during pre-rendering */}
+					{/* Ad container */}
 					<div className='full-article__ad-container'>
 						<GoogleAdSense
 							slot='3456509173'

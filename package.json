@@ -8,7 +8,7 @@
     "prebuild": "node scripts/generate-sitemap-urls.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "postbuild": "react-snap --config=scripts/reactSnap.js",
+    "postbuild": "react-snap",
     "update-sitemap-urls": "node scripts/generate-sitemap-urls.js"
   },
   "reactSnap": {
@@ -56,8 +56,7 @@
       "collapseWhitespace": false,
       "removeComments": false
     },
-    "puppeteerIgnoreHTTPSErrors": true,
-    "skipThirdPartyRequests": true,
+    "userAgent": "ReactSnapBot",
     "puppeteerArgs": [
       "--no-sandbox",
       "--disable-setuid-sandbox"
