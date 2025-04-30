@@ -6,7 +6,7 @@ const Root = () => {
 		<>
 			<ScrollRestoration />
 			<Navbar />
-			<div id="page-content">
+			<div id='page-content'>
 				<Outlet />
 			</div>
 		</>
