@@ -54,7 +54,6 @@
     "react-router-dom": "^6.16.0",
     "react-scripts": "^5.0.1",
     "react-slick": "^0.29.0",
-    "react-static-generator": "^0.8.6",
     "sanity": "^3.16.7",
     "sanity-plugin-media": "^2.2.2",
     "serve-static": "^2.2.0",
