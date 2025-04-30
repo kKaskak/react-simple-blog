@@ -1,21 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Adsense } from '@ctrl/react-adsense';
-import { useState, useEffect } from 'react';
 
-// Simple wrapper component for AdSense
 const GoogleAd = ({ slot, format, layout, style = {} }) => {
-	const [isReactSnap, setIsReactSnap] = useState(true);
-
-	useEffect(() => {
-		// Check if we're in react-snap pre-rendering phase
-		const isBot = window.navigator.userAgent === 'ReactSnapBot';
-		setIsReactSnap(isBot);
-	}, []);
-
-	// Don't render ads during pre-rendering
-	if (isReactSnap) {
-		return <div style={{ ...style, minHeight: '100px' }}></div>;
-	}
 
 	const defaultStyle = {
 		display: 'block',

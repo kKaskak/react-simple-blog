@@ -9,18 +9,15 @@ import { linkedin, aTwisted, xcorp } from '../../assets/imgs';
 import { BsFacebook, BsPinterest, BsReddit } from 'react-icons/bs';
 import { FiArrowUpRight } from 'react-icons/fi';
 import FullArticleHelmet from './FullArticleHelmet';
-import GoogleAdSense from './ads/GoogleAdSense';
 import './FullArticle.css';
+import GoogleAd from '../../components/GoogleAd/GoogleAd';
 
 const FullArticle = () => {
 	const [singlePost, setSinglePost] = useState({});
 	const [adIndexes, setAdIndexes] = useState([]);
-	const [isLoading, setIsLoading] = useState(true);
-	const [error, setError] = useState(null);
+	const [, setIsLoading] = useState(true);
+	const [, setError] = useState(null);
 	const { slug } = useParams();
-
-	// Check if we're in react-snap pre-rendering
-	const isReactSnap = typeof window !== 'undefined' && window.navigator && window.navigator.userAgent === 'ReactSnapBot';
 
 	useEffect(() => {
 		setIsLoading(true);
@@ -70,45 +67,9 @@ const FullArticle = () => {
 			});
 	}, [slug]);
 
-	// Show loading or error state
-	if (isLoading) {
-		return (
-			<PageLayout>
-				<div className='full-article' style={{ minHeight: '60vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-					<h2>Loading article...</h2>
-				</div>
-			</PageLayout>
-		);
+	if (!singlePost || !singlePost.headerImage || !singlePost.author || !singlePost.body) {
+		return null;
 	}
-
-	if (error || !singlePost || !singlePost.headerImage || !singlePost.author || !singlePost.body) {
-		// Return fallback content when there's an error or missing data
-		if (isReactSnap) {
-			// During pre-rendering, just return minimal content to avoid errors
-			return (
-				<PageLayout>
-					<div className='full-article'>
-						<h1>Article is loading...</h1>
-						<p>This content will be fully rendered in the browser.</p>
-					</div>
-				</PageLayout>
-			);
-		}
-
-		return (
-			<PageLayout>
-				<div
-					className='full-article'
-					style={{ minHeight: '60vh', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}
-				>
-					<h2>Unable to load article</h2>
-					<p>{error || 'Something went wrong'}</p>
-					<Link to='/blog'>Return to articles</Link>
-				</div>
-			</PageLayout>
-		);
-	}
-
 	const {
 		keywords,
 		desc,
@@ -152,7 +113,7 @@ const FullArticle = () => {
 						<>
 							{BlockContent.defaultSerializers.types.block(props)}
 							<div className='full-article__ad-container'>
-								<GoogleAdSense
+								<GoogleAd
 									slot='3456509173'
 									format='fluid'
 									layout='in-article'
@@ -191,7 +152,7 @@ const FullArticle = () => {
 					</div>
 					{/* Ad container */}
 					<div className='full-article__ad-container'>
-						<GoogleAdSense
+						<GoogleAd
 							slot='3456509173'
 							format='fluid'
 							layout='in-article'
@@ -245,7 +206,7 @@ const FullArticle = () => {
 						<hr className='hr-full-article-last'></hr>
 					</div>
 					<div className='full-article__ad-container'>
-						<GoogleAdSense
+						<GoogleAd
 							slot='3456509173'
 							format='fluid'
 							layout='in-article'
