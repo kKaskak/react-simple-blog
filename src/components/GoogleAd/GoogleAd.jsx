@@ -15,7 +15,7 @@ function GoogleAd({ slot, format = 'auto', responsive = true, layout = '-6t+ed+2
 			<ins
 				className={`adsbygoogle ${className}`}
 				style={style}
-				data-ad-client='ca-pub-9338161783698268'
+				data-ad-client='ca-pub-9291762497944939'
 				data-ad-slot={slot}
 				data-ad-format={format}
 				data-ad-layout={responsive ? layout : undefined}
