@@ -1,0 +1,39 @@
+.featured-blog-ad {
+	width: 100%;
+	margin: 1rem 0 1rem 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+
+.featured-ad-container {
+	width: 100%;
+	max-width: 970px;
+	height: 100%;
+	min-height: 120px;
+	background-color: rgba(0, 0, 0, 0.02);
+	border-radius: 8px;
+	overflow: hidden;
+	position: relative;
+	transition: all 0.3s ease;
+}
+
+.featured-ad-label {
+	position: absolute;
+	top: 5px;
+	right: 10px;
+	margin: 0;
+	padding: 2px 8px;
+	font-size: 10px;
+	background-color: rgba(0, 0, 0, 0.05);
+	border-radius: 4px;
+	color: #777;
+	z-index: 1;
+}
+
+@media screen and (max-width: 600px) {
+	.featured-blog-ad {
+		margin: 0.5rem 0 1.5rem 0;
+	}
+}

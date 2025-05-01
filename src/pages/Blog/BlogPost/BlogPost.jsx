@@ -5,6 +5,7 @@ import { CATEGORIES, useBinaryState } from '../../../common';
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
 import './BlogPost.css';
+import FeaturedBlogAd from '../FeaturedBlogAd/FeaturedBlogAd';
 
 const Post = React.lazy(() => import('../Post/Post'));
 
@@ -105,6 +106,7 @@ const BlogPost = () => {
 				{categoriesOpen ? <p>Less</p> : <p>More</p>}
 				<BsArrowDown className={classNames('arrow', { active: categoriesOpen })} />
 			</div>
+			<FeaturedBlogAd />
 			<div className='blog'>
 				{posts.map((post) => (
 					<Suspense key={post.slug.current}>
