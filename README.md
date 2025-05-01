@@ -1,3 +1,73 @@
+# React Blog Projects
+
+This repository contains two separate blog projects:
+
+1. **Original React Blog** - The original React blog built with React and React Router
+2. **Next.js Blog** - A migrated version using Next.js with static site generation
+
+## Original React Blog
+
+The original blog is built with React, React Router, and uses Sanity as a CMS. It features:
+
+- Client-side routing with React Router
+- Integration with Sanity CMS
+- Blog listing and detailed article pages
+- Static rendering script for pre-rendered HTML
+
+### Running the Original Project
+
+```bash
+# Install dependencies
+npm install
+
+# Start the development server
+npm start
+
+# Build for production
+npm run build
+```
+
+## Next.js Blog
+
+The Next.js version is a migration of the original blog, featuring:
+
+- Static Site Generation (SSG) for blog posts
+- SEO optimization with Next.js Head
+- Responsive design with Tailwind CSS
+- Integration with the same Sanity CMS
+- Improved performance and SEO
+
+### Running the Next.js Project
+
+```bash
+# Change to the Next.js project directory
+cd next-blog
+
+# Install dependencies
+npm install
+
+# Run the development server
+npm run dev
+
+# Build for production (generates static HTML)
+npm run build
+```
+
+## Why Two Versions?
+
+The Next.js version demonstrates the benefits of using Next.js for static site generation, particularly for blog content. It offers:
+
+1. Better SEO with static pre-rendered HTML
+2. Faster page loads for users
+3. Simplified deployment to any static hosting
+4. Built-in image optimization
+
+However, the original React version is preserved for reference and comparison.
+
+## License
+
+This project is licensed under the MIT License.
+
 # React JS blog with Sanity CMS
 
 This project was created by Timothy Z / kKaskak.

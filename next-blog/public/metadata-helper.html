@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Metadata Helper</title>
+		<script>
+			// This script helps ensure that dynamic metadata is properly included in static exports
+			// It runs during build time to copy metadata from route metadata into the final HTML
+			(function () {
+				if (typeof window !== 'undefined' && window.document) {
+					try {
+						// This script will be part of the static export build process
+						const metaTags = document.head.querySelectorAll('meta[data-next-metadata], title[data-next-metadata]');
+						if (metaTags.length > 0) {
+							console.log('Found Next.js metadata tags to process:', metaTags.length);
+
+							// Apply these tags to the parent document if possible
+							metaTags.forEach((tag) => {
+								const clone = tag.cloneNode(true);
+								clone.removeAttribute('data-next-metadata');
+								document.head.appendChild(clone);
+							});
+						}
+					} catch (e) {
+						console.error('Error processing metadata:', e);
+					}
+				}
+			})();
+		</script>
+	</head>
+	<body>
+		<!-- This file is only used during build time for metadata processing -->
+		<p>This is a helper file for static metadata generation. You shouldn't see this in production.</p>
+	</body>
+</html>
