@@ -30,7 +30,7 @@ async function extractUrlsFromSitemap() {
 		// Write updated package.json
 		fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
 
-		console.log(`Updated package.json with ${urls.length} URLs from sitemap.xml`);
+		console.log(`Updated package.json with ${urls.length} URLs from sitemap.xml`); // eslint-disable-line no-console
 	} catch (error) {
 		console.error('Error processing sitemap:', error);
 	}
