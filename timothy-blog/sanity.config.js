@@ -1,6 +1,5 @@
 import {defineConfig} from 'sanity'
 import {deskTool} from 'sanity/desk'
-import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemas'
 import {media} from 'sanity-plugin-media'
 import {scheduledPublishing} from '@sanity/scheduled-publishing'
@@ -13,7 +12,7 @@ export default defineConfig({
   projectId: 'zeqqep1d',
   dataset: 'production',
 
-  plugins: [deskTool(), visionTool(), media(), scheduledPublishing(), codeInput()],
+  plugins: [deskTool(), media(), scheduledPublishing(), codeInput()],
 
   schema: {
     types: schemaTypes,

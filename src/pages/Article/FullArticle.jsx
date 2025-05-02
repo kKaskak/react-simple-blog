@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { client, urlFor } from '../../client';
 import { FullArticleHeader } from './index';
 import { Link, useParams } from 'react-router-dom';
-import BlockContent from '@sanity/block-content-to-react';
 import { PageLayout } from '../../components';
 import { logo_small_no_bg } from '../../assets/logo';
 import { linkedin, aTwisted, xcorp } from '../../assets/imgs';
@@ -10,6 +9,7 @@ import { BsFacebook, BsPinterest, BsReddit } from 'react-icons/bs';
 import { FiArrowUpRight } from 'react-icons/fi';
 import './FullArticle.css';
 import FullArticleHelmet from './FullArticleHelmet';
+import { SanityBlockContent } from '../../components/BlockContent';
 
 const FullArticle = () => {
 	const [singlePost, setSinglePost] = useState({});
@@ -78,7 +78,11 @@ const FullArticle = () => {
 						categories={categories}
 					/>
 					<div className='full-article-block__content'>
-						<BlockContent blocks={body} projectId='zeqqep1d' dataset='production' />
+						<SanityBlockContent
+							blocks={body}
+							projectId='zeqqep1d'
+							dataset='production'
+						/>
 					</div>
 					<div className='full-article__share'>
 						<hr className='hr-full-article'></hr>
