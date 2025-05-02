@@ -1,8 +1,8 @@
 import * as ReactDOM from 'react-dom/client';
 import { router } from './router';
 import { RouterProvider } from 'react-router-dom';
+import { loadScripts } from './utils/scripts';
 import './index.css';
-import { loadGoogleAdsScript } from './utils/adsScript';
 
 const rootElement = document.getElementById('root');
 
@@ -10,7 +10,7 @@ const rootElement = document.getElementById('root');
 const App = () => <RouterProvider router={router} />;
 
 // Load Google Ads script only in browser environment
-loadGoogleAdsScript();
+loadScripts();
 
 // Only use hydrateRoot when pre-rendered content exists
 // This is the case when react-snap has pre-rendered the page
