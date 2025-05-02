@@ -6,6 +6,7 @@ import classNames from 'classnames';
 import { motion } from 'framer-motion';
 import './BlogPost.css';
 import FeaturedBlogAd from '../FeaturedBlogAd/FeaturedBlogAd';
+import { AdCard } from './AdCard';
 
 const Post = React.lazy(() => import('../Post/Post'));
 
@@ -89,6 +90,27 @@ const BlogPost = () => {
 		}
 	};
 
+	// Function to render posts with AdCard every 5th position
+	const renderPostsWithAds = () => {
+		const result = [];
+
+		posts.forEach((post, index) => {
+			// Add the regular post
+			result.push(
+				<Suspense key={post.slug.current}>
+					<Post post={post} />
+				</Suspense>,
+			);
+
+			// Add AdCard after every 5th post (positions 4, 9, 14, etc. in zero-based index)
+			if ((index + 1) % 5 === 0) {
+				result.push(<AdCard key={`ad-${index}`} />);
+			}
+		});
+
+		return result;
+	};
+
 	return (
 		<>
 			<motion.div className={classNames('blog-categories', { open: categoriesOpen })}>
@@ -108,11 +130,7 @@ const BlogPost = () => {
 			</div>
 			<FeaturedBlogAd />
 			<div className='blog'>
-				{posts.map((post) => (
-					<Suspense key={post.slug.current}>
-						<Post post={post} />
-					</Suspense>
-				))}
+				{renderPostsWithAds()}
 				<div ref={loader} style={{ height: '20px', margin: '10px 0' }} />
 			</div>
 		</>
