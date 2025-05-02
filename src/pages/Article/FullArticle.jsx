@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { client, urlFor } from '../../client';
 import { FullArticleHeader } from './index';
 import { Link, useParams } from 'react-router-dom';
-import { PageLayout } from '../../components';
+import { GoogleAd, PageLayout } from '../../components';
 import { logo_small_no_bg } from '../../assets/logo';
 import { linkedin, aTwisted, xcorp } from '../../assets/imgs';
 import { BsFacebook, BsPinterest, BsReddit } from 'react-icons/bs';
@@ -84,6 +84,13 @@ const FullArticle = () => {
 							dataset='production'
 						/>
 					</div>
+					<GoogleAd
+						style={{ display: 'block', textAlign: 'center' }}
+						slot={'3456509173'}
+						layout='in-article'
+						format='fluid'
+						responsive={true}
+					/>
 					<div className='full-article__share'>
 						<hr className='hr-full-article'></hr>
 						<div className='full-article__share-header'>
@@ -158,6 +165,12 @@ const FullArticle = () => {
 							<img src={urlFor(fsImage).url()} alt={fsImageAlt} />
 						</div>
 					</div>
+					<GoogleAd
+						slot='6856466622'
+						responsive={true}
+						format='autorelaxed'
+						style={{ display: 'block' }}
+					/>
 					<div className='full-article__footer'>
 						<hr className='hr__full-article__featured-last'></hr>
 						<div className='navbar-logo_container'>
