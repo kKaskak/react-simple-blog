@@ -25,25 +25,35 @@ const serializers = {
 
 			return <HeadingTag id={anchorId || ''}>{text}</HeadingTag>;
 		},
+		customImage: ({ node }) => {
+			const { image, alt } = node;
+			if (!image || !image.asset) {
+				return null;
+			}
+
+			// Adjust this URL generation based on your Sanity configuration
+			const imageUrl =
+				image.asset._ref &&
+				`https://cdn.sanity.io/images/zeqqep1d/production/${image.asset._ref
+					.replace('image-', '')
+					.replace('-jpg', '.jpg')
+					.replace('-png', '.png')
+					.replace('-webp', '.webp')}`;
+
+			return imageUrl ? <img src={imageUrl} alt={alt || ''} /> : null;
+		},
 	},
 };
 
 // Component to render Sanity Portable Text
 const SanityBlockContent = ({ blocks, projectId, dataset }) => {
-	return (
-		<BlockContent
-			blocks={blocks}
-			serializers={serializers}
-			projectId={projectId}
-			dataset={dataset}
-		/>
-	);
+	return <BlockContent blocks={blocks} serializers={serializers} projectId={projectId} dataset={dataset} />;
 };
 
 export default SanityBlockContent;
 
 SanityBlockContent.propTypes = {
-    blocks: PropTypes.array.isRequired,
+	blocks: PropTypes.array.isRequired,
 	projectId: PropTypes.string.isRequired,
 	dataset: PropTypes.string.isRequired,
 };
